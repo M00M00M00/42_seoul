@@ -1,0 +1,6 @@
+Credentials cache: API:A694CED1-019C-47EC-82DD-5614A0D5B6C8
+        Principal: mukim@42SEOUL.KR
+
+  Issued                Expires               Principal
+Jan 31 20:27:30 2022  Feb  1 06:27:30 2022  krbtgt/42SEOUL.KR@42SEOUL.KR
+Jan 31 20:27:32 2022  Feb  1 06:27:30 2022  HTTP/student-storage.42seoul.kr@42SEOUL.KR
