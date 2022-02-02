@@ -1,1 +1,0 @@
-cat /etc/passwd | grep -v "#" | cut -f 1 -d ':' | awk 'NR != 1' | rev | xargs echo | sed 's/ /,/g'

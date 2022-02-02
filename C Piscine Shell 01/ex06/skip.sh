@@ -1,1 +1,1 @@
-ls -l | awk 'NR!=1'
+ls -l | awk 'NR%2 == 1'
