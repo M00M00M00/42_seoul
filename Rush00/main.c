@@ -2,6 +2,6 @@ extern void	rush(int a, int b);
 
 int	main(void)
 {
-	rush(0, 4);
+	rush(10, 4);
 	return (0);
 }

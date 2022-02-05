@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00s.c                                          :+:      :+:    :+:   */
+/*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:55:52 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/05 16:51:42 by sesim            ###   ########.fr       */
+/*   Updated: 2022/02/05 16:47:07 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,19 @@ void	checkpos(int a, int b, int row, int col)
 {
 	while (row <= a)
 	{
-		if ((row == 1 && col == 1) || (row == 1 && col == b))
-			ft_putchar('o');
-		else if ((row == a && col == 1) || (row == a && col == b))
+		if (row == 1 && col == 1)
+			ft_putchar('A');
+		else if (row == 1 && col == b)
+			ft_putchar('C');
+		else if (row == a && col == 1)
+			ft_putchar('A');
+		else if (row == a && col == b)
 		{
-			ft_putchar('o');
+			ft_putchar('C');
 			break ;
 		}
-		else if (row == 1 || row == a)
-			ft_putchar('|');
-		else if (col == 1 || col == b)
-			ft_putchar('-');
+		else if (row == 1 || row == a || col == 1 || col == b)
+			ft_putchar('B');
 		else
 			ft_putchar(' ');
 		row++;
