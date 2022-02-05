@@ -2,6 +2,6 @@
 
 int main()
 {
-    int a = 2;
+    int a = 4;
     ft_print_combn(a);
 }
