@@ -1,7 +1,7 @@
 #include "ft_putchar.c"
 int	main()
 {
-	char a='c';
+	char a='x';
 	ft_putchar(a);
 }
 
