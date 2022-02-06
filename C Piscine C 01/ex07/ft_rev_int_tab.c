@@ -1,22 +1,30 @@
-void    ft_rev_int_tab(int *tab, int size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 18:34:53 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/06 18:34:55 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	ft_rev_int_tab(int *tab, int size)
 {
-    int i[size];
-    int cnt;
+	int	*left_p;
+	int	*right_p;
+	int	temp;
 
-    cnt = 0;
-    while (cnt < size)
-    {
-        i[cnt] = *tab;
-        cnt++;
-        tab++;
-    }
-
-    tab -= size;
-
-    while (cnt >= 0)
-    {
-        *tab = i[cnt - 1];
-        cnt--;
-        tab++;
-    }
+	left_p = tab;
+	right_p = tab + size - 1;
+	temp = 0;
+	while (left_p < right_p)
+	{
+		temp = *left_p;
+		*left_p = *right_p;
+		*right_p = temp;
+		left_p++;
+		right_p--;
+	}
 }

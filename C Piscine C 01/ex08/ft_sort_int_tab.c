@@ -1,55 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 18:35:05 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/06 18:35:07 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void sorting(int arr[], int cnt)
+void	sorting(int cnt1, int cnt2, int *tab)
 {
-    int i;
-    int temp;
+	int	temp;
+	int	*origin_tab;
 
-    i = 0;
-    temp = 0;
-    while (i < cnt)
-    {
-        if (arr[i] > arr[i + 1])
-        {
-            temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp;
-        }
-        i++;
-    }
+	origin_tab = tab;
+	temp = 0;
+	while (cnt2 > 0)
+	{
+		while (cnt1 < cnt2)
+		{
+			if (*tab > *(tab + 1))
+			{
+				temp = *tab;
+				*tab = *(tab + 1);
+				*(tab + 1) = temp;
+			}
+			tab++;
+			cnt1++;
+		}
+		tab = origin_tab;
+		cnt1 = 0;
+		cnt2--;
+	}
 }
 
-void bubble_sort(int arr[], int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
-    int cnt;
+	int	cnt1;
+	int	cnt2;
 
-    cnt = size - 1;
-    while (cnt > 0)
-    {
-        sorting(arr, cnt);
-        cnt--;
-    }
-}
-
-void    ft_sort_int_tab(int *tab, int size)
-{
-    int i[size];
-    int cnt;
-
-    cnt = 0;
-    while (cnt < size)
-    {
-        i[cnt] = *tab;
-        cnt++;
-        tab++;
-    }
-
-    bubble_sort(i, size);
-    cnt = 0;
-    tab -= size;
-    while (cnt < size)
-    {
-        *tab = i[cnt];
-        cnt++;
-        tab++;
-    }
+	cnt1 = 0;
+	cnt2 = size - 1;
+	sorting(cnt1, cnt2, tab);
 }

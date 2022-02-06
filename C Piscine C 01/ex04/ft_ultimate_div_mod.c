@@ -1,10 +1,22 @@
-void    ft_ultimate_div_mod(int *a, int *b)
-{
-    int div;
-    int mod;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 17:03:40 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/06 17:03:42 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    div = *a / *b;
-    mod = *a % *b;
-    *a = div;
-    *b = mod;
+void	ft_ultimate_div_mod(int *a, int *b)
+{
+	int	div;
+	int	mod;
+
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
