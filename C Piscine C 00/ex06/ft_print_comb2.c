@@ -3,65 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:09:18 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/03 21:09:37 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 12:37:43 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-void	ft_putchar(char a)
-{
-	write(1, &a, 1);
-}
 
-void	ft_int_putchar(char a)
-{
-	a += 48;
-	write(1, &a, 1);
-}
-
-void	print_char(char a, char b, char c, char d)
+void	print_char1(char a, char b)
 {	
-	ft_int_putchar(a);
-	ft_int_putchar(b);
-	ft_putchar(' ');
-	ft_int_putchar(c);
-	ft_int_putchar(d);
-	ft_putchar(',');
-	ft_putchar(' ');
+	write(1, &a, 1);
+	write(1, &b, 1);
+	write(1, " ", 1);
+}
+
+void	print_char2(char c, char d)
+{	
+	write(1, &c, 1);
+	write(1, &d, 1);
+	write(1, ", ", 2);
 }
 
 void	last_print(void)
 {
-	char	a;
-	char	b;
+	int	a;
+	int	b;
 
-	a = 9;
-	b = 8;
-	ft_int_putchar(a);
-	ft_int_putchar(b);
-	ft_putchar(' ');
-	ft_int_putchar(a);
-	ft_int_putchar(a);
+	a = 9 + '0';
+	b = 8 + '0';
+	write(1, &a, 1);
+	write(1, &b, 1);
+	write(1, " ", 1);
+	write(1, &a, 1);
+	write(1, &a, 1);
 }
 
 void	ft_print_comb2(void)
 {
-	int	temp1;
-	int	temp2;
+	int	t1;
+	int	t2;
 
-	temp1 = 0;
-	while (temp1 < 98)
+	t1 = 0;
+	while (t1 < 98)
 	{
-		temp2 = temp1 + 1;
-		while (temp2 < 100)
+		t2 = t1 + 1;
+		while (t2 < 100)
 		{
-			print_char(temp1 / 10, temp1 % 10, temp2 / 10, temp2 % 10);
-			temp2 ++;
+			print_char1(t1 / 10 + '0', t1 % 10 + '0');
+			print_char2(t2 / 10 + '0', t2 % 10 + '0');
+			t2++;
 		}
-		temp1 ++;
+		t1 ++;
 	}
 	last_print();
 }

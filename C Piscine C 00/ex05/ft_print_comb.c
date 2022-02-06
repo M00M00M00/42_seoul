@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:04:59 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/03 20:10:24 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 12:07:51 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,10 @@ void	three_putchar(char	a, char b, char c)
 	write(1, &c, 1);
 }
 
-void	ft_putchar(char a)
-{
-	write(1, &a, 1);
-}
-
 void	print(int a, int b, int c)
 {
 	three_putchar(a, b, c);
-	ft_putchar(',');
-	ft_putchar(' ');
+	write(1, ", ", 2);
 }
 
 void	ft_print_comb(void)

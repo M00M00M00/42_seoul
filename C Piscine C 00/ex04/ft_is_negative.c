@@ -3,24 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 17:34:17 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/03 17:34:22 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 12:10:34 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char	c)
-{
-	write(1, &c, 1);
-}
-
 void	ft_is_negative(int	n)
 {
 	if (n < 0)
-		ft_putchar('N');
+		write(1, &"N", 1);
 	else
-		ft_putchar('P');
+		write(1, &"P", 1);
 }

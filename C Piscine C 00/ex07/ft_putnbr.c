@@ -1,33 +1,14 @@
 #include <unistd.h>
-void	ft_putchar(char a)
-{
-	write(1, &a, 1);
-}
-
-void	ft_int_putchar(char a)
-{
-	a += 48;
-	write(1, &a, 1);
-}
 
 void	print_small(void)
 {
-	ft_putchar('-');
-	ft_int_putchar(2);
-	ft_int_putchar(1);
-	ft_int_putchar(4);
-	ft_int_putchar(7);
-	ft_int_putchar(4);
-	ft_int_putchar(8);
-	ft_int_putchar(3);
-	ft_int_putchar(6);
-	ft_int_putchar(4);
-	ft_int_putchar(8);
+	write(1, "-2147483648", 11);
 }
 
 void	print_pos(int nb, int cnt, int arr[])
 {
 	int	a;
+	int	temp;
 
 	while (nb > 0)
 	{
@@ -39,17 +20,19 @@ void	print_pos(int nb, int cnt, int arr[])
 	cnt--;
 	while (cnt >= 0)
 	{
-		ft_int_putchar(arr[cnt]);
+		temp = arr[cnt] + '0';
+		write(1, &temp, 1);
 		cnt--;
 	}
 }
 
 void	ft_putnbr(int nb)
 {
-	int	a;
 	int	arr[12];
 	int	cnt;
+	int	zero;
 
+	zero = 0 + '0';
 	if (nb == -2147483648)
 	{
 		print_small();
@@ -58,13 +41,13 @@ void	ft_putnbr(int nb)
 	{
 		if (nb < 0)
 		{
-			ft_putchar('-');
+			write(1, "-", 1);
 			nb = -1 * nb;
 		}
 		cnt = 0;
 		if (nb == 0)
 		{
-			ft_int_putchar(0);
+			write(1, &zero, 1);
 		}
 		else
 			print_pos(nb, cnt, arr);
