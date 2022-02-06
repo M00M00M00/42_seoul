@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:09:18 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/06 12:37:43 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 20:48:13 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,7 @@ void	print_char2(char c, char d)
 
 void	last_print(void)
 {
-	int	a;
-	int	b;
-
-	a = 9 + '0';
-	b = 8 + '0';
-	write(1, &a, 1);
-	write(1, &b, 1);
-	write(1, " ", 1);
-	write(1, &a, 1);
-	write(1, &a, 1);
+	write(1, "98 99", 5);
 }
 
 void	ft_print_comb2(void)
