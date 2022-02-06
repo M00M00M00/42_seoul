@@ -6,11 +6,11 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:55:52 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/05 16:47:07 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 09:32:14 by sesim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern void	ft_putchar(char c);
+void	ft_putchar(char c);
 
 int	exception(int a, int b)
 {
@@ -22,7 +22,7 @@ int	exception(int a, int b)
 		return (1);
 }
 
-void	checkpos(int a, int b, int row, int col)
+void	check_pos(int a, int b, int row, int col)
 {
 	while (row <= a)
 	{
@@ -56,7 +56,7 @@ void	rush(int a, int b)
 		col = 1;
 		while (col <= b)
 		{
-			checkpos(a, b, row, col);
+			check_pos(a, b, row, col);
 			col++;
 			row = 1;
 			ft_putchar('\n');

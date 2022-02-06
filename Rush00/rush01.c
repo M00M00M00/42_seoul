@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00s.c                                          :+:      :+:    :+:   */
+/*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:55:52 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/05 16:30:51 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/06 09:32:07 by sesim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern void	ft_putchar(char c);
+void	ft_putchar(char c);
 
-int	exception(int a, int b)
+int	exception(int x, int y)
 {
-	if (a <= 0 || b <= 0 || a > 2147483647 || b > 2147483647)
+	if (x <= 0 || y <= 0 || x > 2147483647 || y > 2147483647)
 	{
 		return (0);
 	}
@@ -22,22 +22,22 @@ int	exception(int a, int b)
 		return (1);
 }
 
-void	checkpos(int a, int b, int row, int col)
+void	check_pos(int x, int y, int row, int col)
 {
-	while (row <= a)
+	while (row <= x)
 	{
 		if (row == 1 && col == 1)
 			ft_putchar('/');
-		else if (row == 1 && col == b)
+		else if (row == 1 && col == y)
 			ft_putchar('\\');
-		else if (row == a && col == 1)
+		else if (row == x && col == 1)
 			ft_putchar('\\');
-		else if (row == a && col == b)
+		else if (row == x && col == y)
 		{
 			ft_putchar('/');
 			break ;
 		}
-		else if (row == 1 || row == a || col == 1 || col == b)
+		else if (row == 1 || row == x || col == 1 || col == y)
 			ft_putchar('*');
 		else
 			ft_putchar(' ');
@@ -45,18 +45,18 @@ void	checkpos(int a, int b, int row, int col)
 	}
 }
 
-void	rush(int a, int b)
+void	rush(int x, int y)
 {
 	int	row;
 	int	col;
 
-	if (exception(a, b))
+	if (exception(x, y))
 	{
 		row = 1;
 		col = 1;
-		while (col <= b)
+		while (col <= y)
 		{
-			checkpos(a, b, row, col);
+			check_pos(x, y, row, col);
 			col++;
 			row = 1;
 			ft_putchar('\n');
