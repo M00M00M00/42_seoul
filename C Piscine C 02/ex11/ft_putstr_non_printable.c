@@ -1,38 +1,44 @@
 #include <unistd.h>
 
-void	f_strncpy(char *dest, char *src, unsigned int n)
+void	get_hexstring(char *str, char *hex)
 {
-	char	*origin_dest;
-	int		cnt;
-	int		normal_n;
+	int	cnt;
+	char *original_hex;
 
-	normal_n = n;
 	cnt = 0;
-	origin_dest = dest;
-	while (cnt < normal_n)
+	original_hex = hex;
+	*hex = *str / 16;
+	hex++;
+	*hex = *str % 16;
+	hex = original_hex;
+	while (cnt < 2)
 	{
-		*dest = *src;
+		if (*hex < 10)
+			*hex = *hex + 48;
+		else
+			*hex = *hex + 87; //ascii code for a is 97
+		hex++;    
 		cnt++;
-		dest++;
-		src++;
 	}
-	dest = origin_dest;	
+	hex = original_hex;
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	char	hex[4];
 	char	*original_str;
-	char	for_print;
+	char	hex[2];
 
+	hex[0] = 0;
+	hex[1] = 0;
 	original_str = str;
 	while (*str != '\0')
 	{
 		if (*str < 32 || *str > 127)
 		{
-			for_print = &*str
 			write(1, "\\", 1);
-			write(1, for_print, 1);
+			get_hexstring(str, hex);
+			write(1, hex, 1);
+			write(1, hex + 1, 1);
 			str++;
 		}
 		else
