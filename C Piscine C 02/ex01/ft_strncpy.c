@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:24:00 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/06 20:24:02 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/08 20:28:03 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest++;
 		src++;
 	}
+	*dest = '\0';
 	return (origin_dest);
 }

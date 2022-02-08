@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:24:10 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/06 20:24:13 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/08 20:27:21 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@ char	*ft_strcpy(char *dest, char *src)
 
 	cnt = 0;
 	origin_dest = dest;
-	while (1)
+	while (*src != '\0')
 	{
 		*dest = *src;
-		if (*src == '\0')
-			cnt++;
-		if (cnt == 1)
-			break ;
 		dest++;
 		src++;
 	}
+	*dest = '\0'
 	return (origin_dest);
 }

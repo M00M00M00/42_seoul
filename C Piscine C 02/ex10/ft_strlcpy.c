@@ -16,6 +16,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 	}
 	if (cnt == n - 1)
 		cnt++;
+	*dest = '\0'
 	dest = origin_dest;
 	return (cnt);
 }

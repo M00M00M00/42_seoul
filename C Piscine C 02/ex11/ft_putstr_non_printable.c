@@ -1,44 +1,40 @@
 #include <unistd.h>
+#include <stdio.h>
 
-void	get_hexstring(char *str, char *hex)
+
+void	get_hexstring(unsigned char temp)
 {
 	int	cnt;
-	char *original_hex;
+	char	hex[2];
 
 	cnt = 0;
-	original_hex = hex;
-	*hex = *str / 16;
-	hex++;
-	*hex = *str % 16;
-	hex = original_hex;
+	hex[0] = temp / 16;
+	hex[1] = temp % 16;
 	while (cnt < 2)
 	{
-		if (*hex < 10)
-			*hex = *hex + 48;
+		if (hex[cnt] < 10)
+			hex[cnt] += 48;
 		else
-			*hex = *hex + 87; //ascii code for a is 97
-		hex++;    
+			hex[cnt] += 87; //ascii code for a is 97
 		cnt++;
 	}
-	hex = original_hex;
+	write(1, &hex[0], 1);
+	write(1, &hex[1], 1);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
 	char	*original_str;
-	char	hex[2];
+	unsigned char	temp;
 
-	hex[0] = 0;
-	hex[1] = 0;
 	original_str = str;
 	while (*str != '\0')
 	{
-		if (*str < 32 || *str > 127)
+		if (*str < 32 || *str > 126)
 		{
+			temp = *str;
 			write(1, "\\", 1);
-			get_hexstring(str, hex);
-			write(1, hex, 1);
-			write(1, hex + 1, 1);
+			get_hexstring(temp);
 			str++;
 		}
 		else
@@ -48,9 +44,4 @@ void	ft_putstr_non_printable(char *str)
 		}
 	}
 	str = original_str;
-}
-
-int main(){
-	char str1[1000] = "Cooucou\ntu vas bien ?";
-	ft_putstr_non_printable(str1);
 }

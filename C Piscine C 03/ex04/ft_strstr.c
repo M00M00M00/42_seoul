@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 17:12:34 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/08 21:20:43 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	matching(char *str, char *to_find, int len_of_f, char *ori_find)
 {
 	int	cnt;
 
 	cnt = 0;
-	while (cnt < len_of_f - 1)
+	while (cnt < len_of_f)
 	{
 		if (*str == *to_find)
 		{
@@ -14,7 +26,7 @@ int	matching(char *str, char *to_find, int len_of_f, char *ori_find)
 		else
 			break ;
 	}
-	if (cnt == len_of_f - 1)
+	if (cnt == len_of_f)
 		return (1);
 	else
 	{
@@ -41,7 +53,7 @@ char	*str_find(char *str, char *to_find, int len_of_f, char *ori_find)
 		else
 			str++;
 	}
-	return (str);
+	return (NULL);
 }
 
 char	*ft_strstr(char *str, char *to_find)
@@ -56,6 +68,11 @@ char	*ft_strstr(char *str, char *to_find)
 		cnt++;
 		to_find++;
 	}
-	to_find = original_find;
-	return (str_find(str, to_find, cnt, original_find));
+	if (cnt == 0)
+		return (str);
+	else
+	{
+		to_find = original_find;
+		return (str_find(str, to_find, cnt, original_find));
+	}
 }
