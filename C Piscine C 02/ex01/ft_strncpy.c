@@ -6,26 +6,25 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:24:00 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/08 20:28:03 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/09 15:06:23 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	char	*origin_dest;
-	int		cnt;
-	int		normal_n;
+	char			*origin_dest;
+	unsigned int	cnt;
 
-	normal_n = n;
 	cnt = 0;
 	origin_dest = dest;
-	while (cnt < normal_n)
+	while (cnt < n)
 	{
 		*dest = *src;
-		cnt++;
 		dest++;
-		src++;
+		cnt++;
+		if (*src != '\0')
+			src++;
 	}
-	*dest = '\0';
 	return (origin_dest);
 }

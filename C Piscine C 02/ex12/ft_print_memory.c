@@ -1,36 +1,33 @@
 #include <unistd.h>
 #include <stdio.h>
-void	print_pointer(char **p)
+void	print_pointer(unsigned long p)
 {
 	int	cnt;
-	char original_p;
 	char	hexp[100];
 
 	cnt = 0;
-	original_p = **p;
-	while (cnt < 8)
+	while (cnt < 16)
 	{
-		hexp[cnt] = **p % 16;
-		**p /= 16;
+		hexp[cnt] = p % 16;
+		p /= 16;
 		cnt++;
 	}
-	cnt--;
-	while (cnt >= 0)
+	cnt = 0;
+	while (cnt < 16)
 	{
 		if (hexp[cnt] < 10)
 			hexp[cnt] = hexp[cnt] + 48;
 		else
 			hexp[cnt] = hexp[cnt] + 87; //ascii code for a is 97
-		cnt--;
-	}
-	cnt = 0;
-	while (cnt < 8)
-	{
-		write(1, &hexp[cnt], 1);
 		cnt++;
 	}
+	cnt--;
+	while (cnt > 0)
+	{
+		write(1, &hexp[cnt], 1);
+		cnt--;
+	}
 	write(1, ":", 1);
-	**p = original_p;
 }
 
 void	get_hexstring(char *str)
@@ -103,7 +100,6 @@ void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	cnt;
 	char	*sw;
-	char	**p;
 
 	sw = addr;
 	cnt = 0;
@@ -111,8 +107,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	{
 		while (*sw != '\0')
 		{
-			**p = &sw;
-			print_pointer(p);
+			print_pointer((unsigned long) sw);
 			print_hexchar(sw);
 			print_string(sw);
 			if (*sw != '\0')

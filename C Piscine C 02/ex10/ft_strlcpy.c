@@ -5,18 +5,16 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 
 	cnt = 0;
 	origin_dest = dest;
-	while (cnt < n - 1)
+	while (cnt < n - 1 || *stc != '\0')
 	{
 		*dest = *src;
 		cnt++;
 		dest++;
 		src++;
-		if (*src == '\0')
-			break ;
 	}
 	if (cnt == n - 1)
 		cnt++;
-	*dest = '\0'
+	*dest = '\0';
 	dest = origin_dest;
 	return (cnt);
 }

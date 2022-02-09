@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:12:34 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/08 21:20:43 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/09 14:22:08 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*str_find(char *str, char *to_find, int len_of_f, char *ori_find)
 		else
 			str++;
 	}
-	return (NULL);
+	return (str);
 }
 
 char	*ft_strstr(char *str, char *to_find)
