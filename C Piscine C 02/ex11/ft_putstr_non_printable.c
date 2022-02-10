@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/10 15:07:20 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/10 15:07:22 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	get_hexstring(unsigned char temp)
 {
-	int	cnt;
+	int		cnt;
 	char	hex[2];
 
 	cnt = 0;
@@ -22,7 +34,7 @@ void	get_hexstring(unsigned char temp)
 
 void	ft_putstr_non_printable(char *str)
 {
-	char	*original_str;
+	char			*original_str;
 	unsigned char	temp;
 
 	original_str = str;

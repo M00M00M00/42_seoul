@@ -113,16 +113,16 @@ int main(void)
 	{
 		printf("-------------ex04---------------\n");
 		printf("---------<Using strstr>-----------\n\n");
-		char s1[100] = "42 is a private, nonprofit and tuition-free computer programming school";
-		char s2[50] = "\0";
+		char s1[100] = "42 is a private, \0nonprofit and tuition-free computer programming school";
+		char s2[50] = "";
 		char *ptr = strstr(s1, s2);
 		printf("From\n\n%s\n\nFind \"%s\" and display from it then.....\n\n %s", s1, s2, ptr); 
 	}
 	printf("\n");
 	{
 		printf("---------<Using ft_strstr>-----------\n\n");
-		char s1[100] = "42 is a private, nonprofit and tuition-free computer programming school";
-		char s2[50] = "\0";
+		char s1[100] = "42 is a private, \0nonprofit and tuition-free computer programming school";
+		char s2[50] = "";
 		char *ptr = ft_strstr(s1, s2);
 		printf("From\n\n%s\n\nFind \"%s\" and display from it then.....\n\n %s", s1, s2, ptr); 
 	}
@@ -150,7 +150,7 @@ int main(void)
 		printf("try size 3\n");
 		char dest[30] = "123";
 		char *src = "456789";
-		size_t ret = strlcat(dest, src, 3);
+		size_t ret = strlcat(dest, src, 2);
 		printf("dest = %s\treturn = %zu\n\n", dest, ret);
 	}
 	printf("\n");
@@ -176,7 +176,7 @@ int main(void)
 		printf("try size 3\n");
 		char dest[30] = "123";
 		char *src = "456789";
-		size_t ret = ft_strlcat(dest, src, 3);
+		size_t ret = ft_strlcat(dest, src, 2);
 		printf("dest = %s\treturn = %zu\n\n", dest, ret);
 		printf("-----------<end of file>-------------");
 	}

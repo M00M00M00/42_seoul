@@ -6,14 +6,14 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:12:44 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/09 18:25:47 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/10 15:15:02 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	size_t	len_dest;
-	size_t	len_src;
+	unsigned int	len_dest;
+	unsigned int	len_src;
 
 	len_dest = 0;
 	len_src = 0;

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/10 15:07:11 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/10 15:07:14 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 {
-	char	*origin_dest;
+	char			*origin_dest;
 	unsigned int	cnt;
 
 	cnt = 0;
@@ -12,7 +24,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 		dest++;
 		src++;
 	}
-	while(*src != '\0')
+	while (*src != '\0')
 	{
 		src++;
 		cnt++;

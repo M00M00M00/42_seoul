@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/10 15:05:34 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/10 15:05:35 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	is_word(char *str)
 {
 	int		sw;
@@ -12,7 +24,7 @@ int	is_word(char *str)
 		else if (*str >= '0' && *str <= '9')
 			sw *= 1;
 		else
-			return(0);
+			return (0);
 		str++;
 	}
 	return (1);
@@ -20,7 +32,7 @@ int	is_word(char *str)
 
 void	change_word(char *str)
 {
-	if	(*str >= 'a' && *str <= 'z')
+	if (*str >= 'a' && *str <= 'z')
 		*str -= 32;
 	str++;
 	while (*str != '\0' && *str != ' ')
@@ -33,8 +45,8 @@ void	change_word(char *str)
 
 char	*ft_strcapitalize(char *str)
 {
-	char *original_str;
-	int	sw_space;
+	char	*original_str;
+	int		sw_space;
 
 	original_str = str;
 	sw_space = 1;

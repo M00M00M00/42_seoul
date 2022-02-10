@@ -6,10 +6,9 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:24:00 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/10 13:48:59 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/10 15:00:55 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
