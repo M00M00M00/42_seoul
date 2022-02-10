@@ -40,6 +40,6 @@ int	main(int argc, char *argv[])
 	cnt = 1;
 	while (cnt < argc)
 	{
-		print(argv[cnt++]); 
+		print(argv[cnt++]);
 	}
 }
