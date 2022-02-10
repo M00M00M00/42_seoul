@@ -1,39 +1,55 @@
-void	capitalize(char *str, int sw_for_space)
+int	is_word(char *str)
 {
-	while (*str != '\0')
+	int		sw;
+
+	sw = 1;
+	while (*str != '\0' && *str != ' ')
 	{
-		if (sw_for_space == 1)
-		{
-			if (*str >= 'a' && *str <= 'z')
-			{
-				*str = *str - 32;
-				str++;
-			}
-			else
-				str++;
-		}
+		if (*str >= 'a' && *str <= 'z')
+			sw *= 1;
+		else if (*str >= 'A' && *str <= 'Z')
+			sw *= 1;
+		else if (*str >= '0' && *str <= '9')
+			sw *= 1;
 		else
-			str++;
-		if (*str == ' ')
-		{
-			sw_for_space = 1;
-			*str = ' ';
-			str++;
-			if (*str == '\0')
-				break ;
-		}
-		else
-			sw_for_space = 0;
+			return(0);
+		str++;
+	}
+	return (1);
+}
+
+void	change_word(char *str)
+{
+	if	(*str >= 'a' && *str <= 'z')
+		*str -= 32;
+	str++;
+	while (*str != '\0' && *str != ' ')
+	{
+		if (*str >= 'A' && *str <= 'Z')
+			*str += 32;
+		str++;
 	}
 }
 
 char	*ft_strcapitalize(char *str)
 {
-	char	*original_str;
-	int		sw_for_space;
+	char *original_str;
+	int	sw_space;
 
 	original_str = str;
-	sw_for_space = 1;
-	capitalize(str, sw_for_space);
-	return (original_str);
+	sw_space = 1;
+	while (*str != '\0')
+	{
+		if (sw_space)
+		{
+			if (is_word(str))
+				change_word(str);
+			sw_space = 0;
+		}
+		if (*str == ' ')
+			sw_space = 1;
+		str++;
+	}
+	str = original_str;
+	return (str);
 }

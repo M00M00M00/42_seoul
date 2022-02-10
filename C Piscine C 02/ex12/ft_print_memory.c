@@ -1,8 +1,7 @@
 #include <unistd.h>
-#include <stdio.h>
 void	print_pointer(unsigned long p)
 {
-	int	cnt;
+	int		cnt;
 	char	hexp[100];
 
 	cnt = 0;
@@ -18,108 +17,104 @@ void	print_pointer(unsigned long p)
 		if (hexp[cnt] < 10)
 			hexp[cnt] = hexp[cnt] + 48;
 		else
-			hexp[cnt] = hexp[cnt] + 87; //ascii code for a is 97
+			hexp[cnt] = hexp[cnt] + 87;
 		cnt++;
 	}
-	cnt--;
 	while (cnt > 0)
 	{
-		write(1, &hexp[cnt], 1);
+		write(1, &hexp[cnt - 1], 1);
 		cnt--;
 	}
 	write(1, ":", 1);
 }
 
-void	get_hexstring(char *str)
+void	get__hexstring(unsigned char str)
 {
-	int	cnt;
-	char	hexh[100];
+	int				cnt;
+	unsigned char	hexh[100];
 
 	cnt = 0;
-	hexh[0] = *str / 16;
-	hexh[1] = *str % 16;
+	hexh[0] = str / 16;
+	hexh[1] = str % 16;
 	while (cnt < 2)
 	{
 		if (hexh[cnt] < 10)
 			hexh[cnt] += 48;
 		else
-			hexh[cnt] += 87; //ascii code for a is 97    
+			hexh[cnt] += 87;
 		cnt++;
 	}
 	write(1, &hexh[0], 1);
 	write(1, &hexh[1], 1);
 }
 
-void	print_hexchar(char *str)
+void	print_hexchar(unsigned char *str, unsigned int cnt, unsigned int size)
 {
-	int	cnt;
-	char	*original_str;
+	unsigned int	cnt_here;
 
-	cnt = 0;
-	original_str = str;
-	while(cnt < 16 && *str != '\0')
+	cnt_here = 0;
+	while (str[cnt_here] != '\0' && cnt_here < 16 && cnt + cnt_here < size)
 	{
-		if (cnt % 2 == 0)
+		if (cnt_here % 2 == 0)
 			write(1, " ", 1);
-		get_hexstring(str);
+		get__hexstring(str[cnt_here]);
 		str++;
-		cnt++;
+		cnt_here++;
 	}
-	if (cnt != 16 && cnt % 2 == 1)
-		write(1, "       ", 7);
-	else if (cnt != 16)
-		write(1, "     ", 5);
+	if (cnt_here != 16)
+	{
+		if (cnt_here % 2 == 1)
+			write(1, "       ", 7);
+		else
+			write(1, "     ", 5);
+	}
 	write(1, " ", 1);
-	str = original_str;
 }
 
-char	*print_string(char *str)
+unsigned int	print_string(unsigned char *str,
+							unsigned int cnt, unsigned int size)
 {
-	int	cnt;
+	unsigned int	cnt_here;
 
-	cnt = 0;
-	while (*str != '\0' && cnt < 16)
+	cnt_here = 0;
+	while (str[cnt_here] != '\0' && cnt_here < 16 && cnt + cnt_here < size)
 	{
 		if (*str >= 32 && *str <= 127)
 		{
 			write(1, str, 1);
 			str++;
-			cnt++;
+			cnt_here++;
 		}
 		else
 		{
 			write(1, ".", 1);
 			str++;
-			cnt++;
+			cnt_here++;
 		}
 	}
-	return(str);
+	return (cnt_here);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	cnt;
-	char	*sw;
+	unsigned char	*sw;
+	unsigned char	cnt_temp;
 
 	sw = addr;
 	cnt = 0;
+	cnt_temp = 16;
 	if (size != 0)
 	{
-		while (*sw != '\0')
+		while (cnt_temp == 16)
 		{
 			print_pointer((unsigned long) sw);
-			print_hexchar(sw);
-			print_string(sw);
-			if (*sw != '\0')
-				write(1, "\n", 1);
-				sw += 16;
+			print_hexchar(sw, cnt, size);
+			cnt_temp = print_string(sw, cnt, size);
+			cnt += cnt_temp;
+			sw += cnt_temp;
+			write(1, "\n", 1);
 		}
 	}
 	return (addr);
 }
-
-int	main()
-{
-	char str[100] = "Bonjour les aminasdf asdfsdfdf dfdsaasfaaaaa";
-	ft_print_memory(str,55);
-}		

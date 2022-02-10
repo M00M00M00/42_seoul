@@ -1,6 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
-
 
 void	get_hexstring(unsigned char temp)
 {
@@ -15,7 +13,7 @@ void	get_hexstring(unsigned char temp)
 		if (hex[cnt] < 10)
 			hex[cnt] += 48;
 		else
-			hex[cnt] += 87; //ascii code for a is 97
+			hex[cnt] += 87;
 		cnt++;
 	}
 	write(1, &hex[0], 1);

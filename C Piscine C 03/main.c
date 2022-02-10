@@ -114,7 +114,7 @@ int main(void)
 		printf("-------------ex04---------------\n");
 		printf("---------<Using strstr>-----------\n\n");
 		char s1[100] = "42 is a private, nonprofit and tuition-free computer programming school";
-		char s2[50] = "apple";
+		char s2[50] = "\0";
 		char *ptr = strstr(s1, s2);
 		printf("From\n\n%s\n\nFind \"%s\" and display from it then.....\n\n %s", s1, s2, ptr); 
 	}
@@ -122,7 +122,7 @@ int main(void)
 	{
 		printf("---------<Using ft_strstr>-----------\n\n");
 		char s1[100] = "42 is a private, nonprofit and tuition-free computer programming school";
-		char s2[50] = "apple";
+		char s2[50] = "\0";
 		char *ptr = ft_strstr(s1, s2);
 		printf("From\n\n%s\n\nFind \"%s\" and display from it then.....\n\n %s", s1, s2, ptr); 
 	}
