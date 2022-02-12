@@ -2,10 +2,10 @@
 #include "./ex01/ft_putstr.c"
 #include "./ex02/ft_putnbr.c"
 #include "./ex03/ft_atoi.c"
-// #include "./ex04/ft_putnbr_base.c"
-// #include "./ex05/ft_atoi_base.c"
+#include "./ex04/ft_putnbr_base.c"
+#include "./ex05/ft_atoi_base.c"
 #include <stdio.h>
-​
+
 int main()
 {
 	{
@@ -60,44 +60,44 @@ int main()
 		printf("%s : %d\n", str4, ft_atoi(str4));
 		printf("%s : %d\n", str5, ft_atoi(str5));
 	}
-	// printf("\n");
-	// {
-	// 	printf("----ex04----\n");
-	// 	printf("8867\n");
-	// 	ft_putnbr_base(1132, "9876543210");
-	// 	printf("\n");
-	// 	printf("1132: %d\n", ft_atoi_base("8867", "9876543210"));
-	// 	printf("\n");
+	printf("\n");
+	{
+		printf("----ex04----\n");
+		printf("8867\n");
+		ft_putnbr_base(1132, "9876543210");
+		printf("\n");
+		printf("1132: %d\n", ft_atoi_base("8867", "9876543210"));
+		printf("\n");
 
-	// 	printf("[SHOULD NOT PRINT]\n");
-	// 	ft_putnbr_base(1132, "");
-	// 	printf("\n");
-	// 	printf("0: %d\n", ft_atoi_base("8867", ""));
-	// 	printf("\n");
+		printf("[SHOULD NOT PRINT]\n");
+		ft_putnbr_base(1132, "");
+		printf("\n");
+		printf("0: %d\n", ft_atoi_base("8867", ""));
+		printf("\n");
 
-	// 	printf("[SHOULD NOT PRINT]\n");
-	// 	ft_putnbr_base(1132, "aabc!");
-	// 	printf("\n");
-	// 	printf("0: %d\n", ft_atoi_base("8867", "aabc!"));
-	// 	printf("\n");
+		printf("[SHOULD NOT PRINT]\n");
+		ft_putnbr_base(1132, "aabc!");
+		printf("\n");
+		printf("0: %d\n", ft_atoi_base("8867", "aabc!"));
+		printf("\n");
 
-	// 	printf("-bDBbFjci\n");
-	// 	ft_putnbr_base(-2147483648, "abcdefghijABCDEFGHIJ"); // 20base
-	// 	printf("\n");
-	// 	printf("-2147483648: %d\n", ft_atoi_base("-bDBbFjci", "abcdefghijABCDEFGHIJ"));
-	// 	printf("\n");
+		printf("-bDBbFjci\n");
+		ft_putnbr_base(-2147483648, "abcdefghijABCDEFGHIJ"); // 20base
+		printf("\n");
+		printf("-2147483648: %d\n", ft_atoi_base("-bDBbFjci", "abcdefghijABCDEFGHIJ"));
+		printf("\n");
 
-	// 	printf("*///////\n");
-	// 	ft_putnbr_base(2147483647, "!@#$%^&*()<>,.?/"); // 16base
-	// 	printf("\n");
-	// 	printf("2147483647: %d\n", ft_atoi_base("*///////", "!@#$%^&*()<>,.?/"));
-	// 	printf("\n");
+		printf("*///////\n");
+		ft_putnbr_base(2147483647, "!@#$%^&*()<>,.?/"); // 16base
+		printf("\n");
+		printf("2147483647: %d\n", ft_atoi_base("*///////", "!@#$%^&*()<>,.?/"));
+		printf("\n");
 
-	// 	printf("-@@#!\n");
-	// 	ft_putnbr_base(-42, "!@#"); // 3base
-	// 	printf("\n");
-	// 	printf("-42: %d\n", ft_atoi_base("-@@#!", "!@#"));
-	// 	printf("\n");
-	// }
-	// printf("\n");
+		printf("-@@#!\n");
+		ft_putnbr_base(-42, "!@#"); // 3base
+		printf("\n");
+		printf("-42: %d\n", ft_atoi_base("-@@#!", "!@#"));
+		printf("\n");
+	}
+	printf("\n");
 }

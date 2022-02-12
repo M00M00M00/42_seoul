@@ -12,8 +12,8 @@ int	find_len(char *str)
 int	check_base(char *base)
 {
 	int	cnt;
-	int cnt_in;
-	
+	int	cnt_in;
+
 	cnt = 0;
 	while (base[cnt])
 	{
@@ -31,25 +31,10 @@ int	check_base(char *base)
 	return (1);
 }
 
-void	print_smallest(char *base)
+void	print1(long long nbr, char *base, int arr[], int cnt)
 {
-	write(1, "-", 1);
-	write(1, &base[2], 1);
-	write(1, &base[1], 1);
-	write(1, &base[4], 1);
-	write(1, &base[7], 1);
-	write(1, &base[4], 1);
-	write(1, &base[8], 1);
-	write(1, &base[3], 1);
-	write(1, &base[6], 1);
-	write(1, &base[4], 1);
-	write(1, &base[8], 1);
-}
-
-void	print(int nbr, char *base, int arr[], int cnt)
-{
-	int len_base;
-	int	ans;
+	long long	len_base;
+	long long	ans;
 
 	len_base = find_len(base);
 	if (nbr < 0)
@@ -72,7 +57,7 @@ void	print(int nbr, char *base, int arr[], int cnt)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int arr[100];
+	int	arr[100];
 	int	len_base;
 	int	cnt;
 
@@ -85,22 +70,10 @@ void	ft_putnbr_base(int nbr, char *base)
 			write(1, &base[0], 1);
 			write(1, "\n", 1);
 		}
-		else if (nbr == -2147483648)
-		{
-			print_smallest(base);
-			write(1, "\n", 1);
-		}
 		else
 		{
-			print(nbr, base, arr, cnt);
+			print1(nbr, base, arr, cnt);
 			write(1, "\n", 1);
 		}
 	}
-}
-
-int main()
-{
-    ft_putnbr_base(999, "abcdefghij");
-
-    return 0;
 }
