@@ -81,14 +81,20 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (len_base > 1 && check_base(base))
 	{
 		if (nbr == 0)
+		{
 			write(1, &base[0], 1);
 			write(1, "\n", 1);
+		}
 		else if (nbr == -2147483648)
+		{
 			print_smallest(base);
 			write(1, "\n", 1);
+		}
 		else
+		{
 			print(nbr, base, arr, cnt);
 			write(1, "\n", 1);
+		}
 	}
 }
 
