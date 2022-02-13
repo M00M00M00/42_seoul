@@ -3,63 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:05:34 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/10 15:05:35 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/13 13:53:11 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_word(char *str)
-{
-	int		sw;
-
-	sw = 1;
-	while (*str != '\0' && *str != ' ')
-	{
-		if (*str >= 'a' && *str <= 'z')
-			sw *= 1;
-		else if (*str >= 'A' && *str <= 'Z')
-			sw *= 1;
-		else if (*str >= '0' && *str <= '9')
-			sw *= 1;
-		else
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
-void	change_word(char *str)
-{
-	if (*str >= 'a' && *str <= 'z')
-		*str -= 32;
-	str++;
-	while (*str != '\0' && *str != ' ')
-	{
-		if (*str >= 'A' && *str <= 'Z')
-			*str += 32;
-		str++;
-	}
-}
 
 char	*ft_strcapitalize(char *str)
 {
 	char	*original_str;
-	int		sw_space;
+	int		sw_first;
 
 	original_str = str;
-	sw_space = 1;
+	sw_first = 1;
 	while (*str != '\0')
 	{
-		if (sw_space)
+		if ((*str >= 'A' && *str <= 'Z') && sw_first == 0)
+			*str += 32;
+		if (sw_first)
 		{
-			if (is_word(str))
-				change_word(str);
-			sw_space = 0;
+			if (*str >= 'a' && *str <= 'z')
+				*str -= 32;
+			sw_first = 0;
 		}
-		if (*str == ' ')
-			sw_space = 1;
+		if (!((*str >= 'a' && *str <= 'z') || \
+		(*str >= 'A' && *str <= 'Z') || (*str >= '0' && *str <= '9')))
+			sw_first = 1;
 		str++;
 	}
 	str = original_str;

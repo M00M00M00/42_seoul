@@ -190,7 +190,7 @@ int main(){
 	printf("\n");
 	
 	{
-		char str[100] = "SRYOU . ~<-9 starts hera! I. am./ king?~\n\n\t\"\\happy\\\"";
+		char str[100] = "SRYOU . ~<-9 starts heaaaaara! I. am./ king?~\n\n\t\"\\happy\\\"";
 		printf("----ex12----\n");
 		printf("%s\n  %p\n",str, str);
 		ft_print_memory(str,55);

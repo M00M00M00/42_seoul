@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:06:09 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/10 16:42:16 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/13 13:52:13 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,13 @@ void	print_hexchar(unsigned char *str, unsigned int cnt, unsigned int size)
 		if (cnt_here % 2 == 0)
 			write(1, " ", 1);
 		get__hexstring(str[cnt_here]);
-		str++;
 		cnt_here++;
 	}
 	if (cnt_here != 16)
 	{
-		if (cnt_here % 2 == 1)
+		if (cnt_here == 15)
+			write(1, "  ", 2);
+		else if (cnt_here % 2 == 1)
 			write(1, "       ", 7);
 		else
 			write(1, "     ", 5);
@@ -91,16 +92,14 @@ unsigned int	print_string(unsigned char *str,
 	cnt_here = 0;
 	while (str[cnt_here] != '\0' && cnt_here < 16 && cnt + cnt_here < size)
 	{
-		if (*str >= 32 && *str <= 127)
+		if (str[cnt_here] >= 32 && str[cnt_here] <= 127)
 		{
-			write(1, str, 1);
-			str++;
+			write(1, &str[cnt_here], 1);
 			cnt_here++;
 		}
 		else
 		{
 			write(1, ".", 1);
-			str++;
 			cnt_here++;
 		}
 	}
@@ -118,7 +117,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	cnt_temp = 16;
 	if (size != 0)
 	{
-		while (cnt_temp == 16)
+		while (cnt_temp == 16 && *sw != '\0')
 		{
 			print_pointer((unsigned long) sw);
 			print_hexchar(sw, cnt, size);
