@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/13 12:16:41 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/13 12:29:45 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	find_len1(char *str)
 {
 	int	cnt;
@@ -32,14 +44,12 @@ int	check_base1(char *base)
 	return (1);
 }
 
-int	calculate1(char *str, char *base, int cnt_minus, int len_base)
+int	calculate1(char *str, char *base, int len_base, long long ans)
 {
 	char			arr[100];
 	int				cnt;
-	long long		ans;
 
 	cnt = 0;
-	ans = 0;
 	while (*base)
 		arr[cnt++] = *base++;
 	arr[cnt] = '\0';
@@ -49,13 +59,16 @@ int	calculate1(char *str, char *base, int cnt_minus, int len_base)
 		while (cnt < len_base)
 		{
 			if (*str == arr[cnt])
+			{
 				ans = ans * len_base + (long long) cnt;
+				break ;
+			}
 			cnt++;
 		}
+		if (cnt == len_base)
+			break ;
 		str++;
 	}
-	if (cnt_minus % 2 == 1)
-		ans *= -1;
 	return (ans);
 }
 
@@ -78,7 +91,9 @@ int	ft_atoi_base(char *str, char *base)
 			if (*str++ == '-')
 				cnt_minus++;
 		}
-		return (calculate1(str, base, cnt_minus, len_base));
+		if (cnt_minus % 2 == 1)
+			return (calculate1(str, base, len_base, 0) * -1);
+		return (calculate1(str, base, len_base, 0));
 	}
 	else
 		return (0);

@@ -5,18 +5,20 @@ def cnt(table, x, y, try_i):
 
 	table[x][y] = try_i
 	
-	if sw_hori[x-1]:
-		temp = 0
-		cnt = 0
-		for i in table[x][1:y+1]:
-			if temp < i:
-				cnt += 1
-				temp = i
-		if cnt == table[x][0]:
-			if temp != n:
-				table[x][y] = 0
-				return False
-			sw_hori[x-1] = 0
+
+	temp = 0
+	cnt = 0
+	for i in table[x][1:y+1]:
+		if temp < i:
+			cnt += 1
+			temp = i
+	if cnt > table[x][0]:
+		table[x][y] = 0
+		return False
+	if temp == n:
+		if cnt != table[x][0]:
+			table[x][y] = 0
+			return False
 
 	if y == n:
 		temp = 0
@@ -30,19 +32,19 @@ def cnt(table, x, y, try_i):
 			table[x][y] = 0
 			return False
 		
-	if sw_verti[y-1]:
-		temp = 0
-		cnt = 0
-		for i in range(1,x+1):
-			if temp < table[i][y]:
-				cnt += 1
-				temp = table[i][y]
-		
-		if cnt == table[0][y]:
-			if temp != n:
-				table[x][y] = 0
-				return False
-			sw_verti[y-1] = 0
+	temp = 0
+	cnt = 0
+	for i in range(1,x+1):
+		if temp < table[i][y]:
+			cnt += 1
+			temp = table[i][y]
+	if cnt > table[0][y]:
+		table[x][y] = 0
+		return False		
+	if temp == n:
+		if cnt != table[0][y]:
+			table[x][y] = 0
+			return False
 
 	if x == n:
 		temp = 0
