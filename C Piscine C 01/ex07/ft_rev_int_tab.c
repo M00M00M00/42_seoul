@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:34:53 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/06 18:34:55 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/14 15:37:52 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	*left_p;
-	int	*right_p;
+	int	i;
 	int	temp;
 
-	left_p = tab;
-	right_p = tab + size - 1;
-	temp = 0;
-	while (left_p < right_p)
+	i = 0;
+	while (i < size / 2)
 	{
-		temp = *left_p;
-		*left_p = *right_p;
-		*right_p = temp;
-		left_p++;
-		right_p--;
+		temp = tab[i];
+		tab[i] = tab[size - i - 1];
+		tab[size - i - 1] = temp;
+		i++;
 	}
 }

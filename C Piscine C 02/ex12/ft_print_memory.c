@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:06:09 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/13 13:52:13 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/14 15:10:43 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	cnt_temp = 16;
 	if (size != 0)
 	{
-		while (cnt_temp == 16 && *sw != '\0')
+		while (cnt_temp == 16 && *sw != '\0' && cnt <= size)
 		{
 			print_pointer((unsigned long) sw);
 			print_hexchar(sw, cnt, size);

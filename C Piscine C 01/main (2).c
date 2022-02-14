@@ -59,7 +59,7 @@ int main(){
 	printf("8 : %d\n",ft_strlen(charr1));//8
 	printf("7 : %d\n\n",ft_strlen(charr2));//7
 	
-	int intarr1[20] = {1,2,3,4,5,6,7,8,9,10,11,12,100,2};
+	int intarr1[20] = {1,2,3,4,5,6,7,8,9,10,11,12,100};
 	int intarr2[20] = {};
 	
 	
@@ -72,7 +72,7 @@ int main(){
 		printf("%d ",intarr2[i]);
 	}
 	printf("\nWill Turn To...\n");
-	ft_rev_int_tab(intarr1, 14);
+	ft_rev_int_tab(intarr1, 13);
 	ft_rev_int_tab(intarr2, 9);
 	for(int i=0;i<14;i++){
 		printf("%d ",intarr1[i]);
