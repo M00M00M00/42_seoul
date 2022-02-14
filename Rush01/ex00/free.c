@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 17:12:34 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 11:16:15 by mukim            ###   ########.fr       */
+/*   Created: 2022/02/13 20:35:03 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/13 20:41:44 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+#include <stdlib.h>
+
+void	free_things(int **table, int **bits, int size)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	if (*to_find == '\0')
-		return (str);
-	while (str[i])
+	while (i < size)
 	{
-		j = 0;
-		if (str[i + j] == to_find[j])
-		{
-			while (to_find[j])
-			{
-				if (str[i + j] != to_find[j])
-					break ;
-				j++;
-			}
-			if (!(to_find[j]))
-				return (str + i);
-		}
+		free(table[i]);
 		i++;
 	}
-	return (str + i);
+	free(table);
+	i = 0;
+	while (i < 2)
+	{
+		free(bits[i]);
+		i++;
+	}
+	free(bits);
 }

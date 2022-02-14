@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/13 20:29:42 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/13 21:19:39 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <unistd.h>
 
 void	dfs(int **table, int xy, int size, int **bits);
+void	free_things(int **table, int **bits, int size);
 
 int	check_argv(char *argv, int i, int num, int is_num)
 {
@@ -25,9 +38,7 @@ int	check_argv(char *argv, int i, int num, int is_num)
 			return (0);
 		i++;
 	}
-	if (is_num)
-		return (0);
-	if (num == 0 || num % 4 != 0)
+	if (is_num || num == 0 || num % 4 != 0)
 		return (0);
 	return (num / 4);
 }
@@ -74,6 +85,7 @@ int	**make_table(int size)
 		}
 		i++;
 	}
+	return (table);
 }
 
 int	**make_bits(int size)
@@ -100,9 +112,14 @@ int	main(int argc, char **argv)
 	int	**table;
 	int	**bits;
 
+	if (argc != 2)
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
 	size = check_argv(argv[1], 0, 0, 1);
 	table = make_table(size);
-	if (argc != 2 || !check_argv(argv[1], 0, 0, 1))
+	if (!check_argv(argv[1], 0, 0, 1))
 	{
 		write(1, "Error\n", 6);
 		return (0);
@@ -111,6 +128,7 @@ int	main(int argc, char **argv)
 	bits = make_bits(size);
 	dfs(table, 11, size, bits);
 	if (table[size + 1][size + 1] != 1)
-		write(1, "Error1\n", 6);
+		write(1, "Error\n", 6);
+	free_things(table, bits, size);
 	return (0);
 }

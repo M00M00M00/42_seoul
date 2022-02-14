@@ -121,6 +121,7 @@ int	main(void)
 		printf("30 Cat\n");
 		printf("cated val : %lu\n", strlcat(str1, str2, 30) );
 		printf("After 30 cat\n");
+		printf("%s\n%s\n", str1, str2);	
 		printf("15 Cat\n");
 		printf("cated val : %lu\n", strlcat(str1, str2, 15) );
 		printf("After 15 cat\n");

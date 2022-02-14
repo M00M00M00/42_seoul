@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   check_cnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 17:12:34 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 11:16:15 by mukim            ###   ########.fr       */
+/*   Created: 2022/02/13 20:29:35 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/13 21:08:07 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	get_cnt_left(int **table, int temp, int x, int y)
 {
 	int	i;
-	int	j;
+	int	cnt;
 
-	i = 0;
-	if (*to_find == '\0')
-		return (str);
-	while (str[i])
+	i = 1;
+	cnt = 0;
+	while (i <= y)
 	{
-		j = 0;
-		if (str[i + j] == to_find[j])
+		if (temp < table[x][i])
 		{
-			while (to_find[j])
-			{
-				if (str[i + j] != to_find[j])
-					break ;
-				j++;
-			}
-			if (!(to_find[j]))
-				return (str + i);
+			cnt++;
+			temp = table[x][i];
 		}
 		i++;
 	}
-	return (str + i);
+	return (cnt);
+}
+
+int	get_cnt_up(int **table, int temp, int x, int y)
+{
+	int	i;
+	int	cnt;
+
+	i = 1;
+	cnt = 0;
+	while (i <= x)
+	{
+		if (temp < table[i][y])
+		{
+			cnt++;
+			temp = table[i][y];
+		}
+		i++;
+	}
+	return (cnt);
 }
