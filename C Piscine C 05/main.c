@@ -38,6 +38,7 @@ int main(){
 		printf("-2^1 : %d\n", ft_iterative_power(-2, 1));
 		printf("-4^2 : %d\n", ft_iterative_power(-4, 2));
 		printf("5^-1 : %d\n", ft_iterative_power(5, -1));
+		printf("0^0 : %d\n", ft_iterative_power(0, 0));
 	}
 	printf("\n");
 	{
@@ -48,6 +49,7 @@ int main(){
 		printf("-2^1 : %d\n", ft_recursive_power(-2, 1));
 		printf("-4^2 : %d\n", ft_recursive_power(-4, 2));
 		printf("5^-1 : %d\n", ft_recursive_power(5, -1));
+		printf("0^0 : %d\n", ft_recursive_power(0, 0));
 	}
 	printf("\n");
 	{
