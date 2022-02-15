@@ -3,7 +3,7 @@
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	cnt;
-	int *arr;
+	int	*arr;
 
 	cnt = 0;
 	if (min >= max)
@@ -12,6 +12,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	arr = (int *) malloc(sizeof(int) * (max - min));
+	if (arr == 0)
+		return (-1);
 	while (min < max)
 	{
 		arr[cnt] = min;
@@ -21,4 +23,3 @@ int	ft_ultimate_range(int **range, int min, int max)
 	*range = arr;
 	return (cnt);
 }
-

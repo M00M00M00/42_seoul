@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:12:34 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 11:16:15 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/15 12:06:29 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,11 @@ char	*ft_strstr(char *str, char *to_find)
 	while (str[i])
 	{
 		j = 0;
-		if (str[i + j] == to_find[j])
-		{
-			while (to_find[j])
-			{
-				if (str[i + j] != to_find[j])
-					break ;
-				j++;
-			}
-			if (!(to_find[j]))
-				return (str + i);
-		}
+		while (str[i + j] == to_find[j] && to_find[j])
+			j++;
+		if (to_find[j] == '\0')
+			return (str + i);
 		i++;
 	}
-	return (str + i);
+	return (0);
 }

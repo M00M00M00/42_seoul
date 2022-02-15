@@ -2,9 +2,9 @@
 #include "./ex01/ft_range.c"
 #include "./ex02/ft_ultimate_range.c"
 // #include "./ex03/ft_strjoin.c"
-// #include "./ex04/ft_convert_base.c"
-// #include "./ex04/ft_convert_base2.c"
-// #include "./ex05/ft_split.c"
+#include "./ex04/ft_convert_base.c"
+#include "./ex04/ft_convert_base2.c"
+#include "./ex05/ft_split.c"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -85,51 +85,53 @@ int main(){
 	// 	printf("%s\n", str);
 	// 	free(str);
 	// }
-	// {
-	// 	printf("----ex04----\n");
-	// 	char *str;
-	// 	str = ft_convert_base("15858", "012345678", "0123456789ABCDEF");
-	// 	printf("2A9B : %s\n", str);
-	// 	free(str);
-	// 	str = ft_convert_base("  \t \n -+-+-28909abc", "0123456789abcdef", "0123456789ABCDEFGHIJ");
-	// 	printf("-ACDADBG : %s\n", str);
-	// 	free(str);
-	// 	str = ft_convert_base(" --zzixzoz", "ozix", "POIUYTREWQ");
-	// 	printf("TWYO : %s\n", str);
-	// 	free(str);
-	// 	char base[6] = {-19, 66, -1, -8, -20, 0};
-	// 	str = ft_convert_base("++858a112", "845a", base);
-	// 	printf("B?? : %s\n", str);
-	// 	free(str);
+	{
+		printf("----ex04----\n");
+		char *str;
+		str = ft_convert_base("15858", "012345678", "0123456789ABCDEF");
+		printf("2A9B : %s\n", str);
+		free(str);
+		str = ft_convert_base("  \t \n -+-+-28909abc", "0123456789abcdef", "0123456789ABCDEFGHIJ");
+		printf("-ACDADBG : %s\n", str);
+		free(str);
+		str = ft_convert_base(" --zzixzoz", "ozix", "POIUYTREWQ");
+		printf("TWYO : %s\n", str);
+		free(str);
+		char base[6] = {-19, 66, -1, -8, -20, 0};
+		str = ft_convert_base("++858a112", "845a", base);
+		printf("B?? : %s\n", str);
+		free(str);
 
-	// 	str = ft_convert_base("15858", "01234aa5678", "012345679ABCDEF");
-	// 	printf("null : %s\n", str);
-	// 	free(str);	
-	// 	str = ft_convert_base("15858", "01278", "0");
-	// 	printf("null : %s\n", str);
-	// 	free(str);	
-	// 	str = ft_convert_base("15858", "01-278", "019ABCDEF");
-	// 	printf("null : %s\n", str);
-	// 	free(str);
-	// }
-	// {
-	// 	printf("----ex05----\n");
-	// 	char **str_arr;
-	// 	int i;
-	// 	str_arr = ft_split("Hello World Cat\tDog\nPizza School"," \n");
-	// 	for(i=0;str_arr[i] != 0; i++)
-	// 		printf("%s\n",str_arr[i]);
-	// 	for(i=0;str_arr[i] != 0; i++)
-	// 		free(str_arr[i]);
-	// 	free(str_arr[i]);
-	// 	free(str_arr);	
-	// 	str_arr = ft_split("Hello World Cat\tDog\nPizza School"," World");
-	// 	for(i=0;str_arr[i] != 0; i++)
-	// 		printf("%s\n",str_arr[i]);
-	// 	for(i=0;str_arr[i] != 0; i++)
-	// 		free(str_arr[i]);
-	// 	free(str_arr[i]);
-	// 	free(str_arr);
-
-	// }
+		str = ft_convert_base("15858", "01234aa5678", "012345679ABCDEF");
+		printf("null : %s\n", str);
+		free(str);	
+		str = ft_convert_base("15858", "01278", "0");
+		printf("null : %s\n", str);
+		free(str);	
+		str = ft_convert_base("15858", "01-278", "019ABCDEF");
+		printf("null : %s\n", str);
+		free(str);
+	}
+	{
+		printf("----ex05----\n");
+		char **str_arr;
+		//int i;
+		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," \n");
+		//for(i=0;str_arr[i] != 0; i++)
+		//	printf("%s\n",str_arr[i]);
+		//for(i=0;str_arr[i] != 0; i++)
+		//	free(str_arr[i]);
+		//free(str_arr[i]);
+		//free(str_arr);
+		//str_arr = ft_split("Hello World Cat Dog Pizza School"," ");
+		//for(i=0;str_arr[i] != 0; i++)
+		//	printf("%s\n",str_arr[i]);
+		//for(i=0;str_arr[i] != 0; i++)
+		//	free(str_arr[i]);
+		printf("tab[1]:%s\n", str_arr[0]);
+		printf("tab[2]%s\n", str_arr[1]);
+		printf("tab[3]:%s\n", str_arr[2]);
+		//free(str_arr[i]);
+	//	free(str_arr);
+	}
 }
