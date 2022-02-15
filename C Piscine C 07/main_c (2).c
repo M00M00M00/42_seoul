@@ -1,6 +1,6 @@
 #include "./ex00/ft_strdup.c"
-// #include "./ex01/ft_range.c"
-// #include "./ex02/ft_ultimate_range.c"
+#include "./ex01/ft_range.c"
+#include "./ex02/ft_ultimate_range.c"
 // #include "./ex03/ft_strjoin.c"
 // #include "./ex04/ft_convert_base.c"
 // #include "./ex04/ft_convert_base2.c"
@@ -22,32 +22,32 @@ int main(){
 		printf("%s\n", str);
 		free (str);
 	}
-	// {
-	// 	printf("----ex01----\n");
-	// 	int	*arr;
-	// 	arr = ft_range(-9, 10);
-	// 	for(int i=0;i<10-(-9);i++)
-	// 		printf("%d ",arr[i]);
-	// 	printf("\n");
-	// 	free(arr);
-	// 	arr = ft_range(1, 1);
-	// 	printf("%p\n", arr);
-	// 	free(arr);
-	// }
-	// {
-	// 	printf("----ex02----\n");
-	// 	int	*arr;
-	// 	int size;
-	// 	size = ft_ultimate_range(&arr, 1, 24);
-	// 	for(int i=0;i<24-(1);i++)
-	// 		printf("%d ",arr[i]);
-	// 	printf("\nsize : %d\n", size);
-	// 	free(arr);
-	// 	size = ft_ultimate_range(&arr, 1, 1);
-	// 	printf("%p\n", arr);
-	// 	printf("size : %d\n", size);
-	// 	free(arr);
-	// }
+	{
+		printf("----ex01----\n");
+		int	*arr;
+		arr = ft_range(-9, 10);
+		for(int i=0;i<10-(-9);i++)
+			printf("%d ",arr[i]);
+		printf("\n");
+		free(arr);
+		arr = ft_range(1, 1);
+		printf("%p\n", arr);
+		free(arr);
+	}
+	{
+		printf("----ex02----\n");
+		int	*arr;
+		int size;
+		size = ft_ultimate_range(&arr, 1, 24);
+		for(int i=0;i<24-(1);i++)
+			printf("%d ",arr[i]);
+		printf("\nsize : %d\n", size);
+		free(arr);
+		size = ft_ultimate_range(&arr, 1, 1);
+		printf("%p\n", arr);
+		printf("size : %d\n", size);
+		free(arr);
+	}
 	// {
 	// 	printf("----ex03----\n");
 	// 	char *strs[10];

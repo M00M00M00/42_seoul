@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:15:44 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 17:52:40 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/14 18:21:06 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb < 2)
 		return (0);
-	while (i * i <= nb)
+	while (i * i <= (unsigned int) nb)
 	{
 		if (nb % i == 0)
 			return (0);

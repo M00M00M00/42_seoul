@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 12:16:24 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 12:25:08 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/14 18:32:58 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	ft_putnbr_base(int nbr, char *base)
 	{
 		if (nbr == 0)
 			write(1, &base[0], 1);
-
 		else
 			print1(nbr, base, arr, cnt);
 	}
