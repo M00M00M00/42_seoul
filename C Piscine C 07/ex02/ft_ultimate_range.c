@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 20:32:51 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/15 20:32:53 by mukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
@@ -22,4 +34,3 @@ int	ft_ultimate_range(int **range, int min, int max)
 	}
 	*range = arr;
 	return (cnt);
-}

@@ -116,7 +116,7 @@ int main(){
 		printf("----ex05----\n");
 		char **str_arr;
 		//int i;
-		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," \n");
+		str_arr = ft_split("HelloWorldCat\tDog\nPizza School","World");
 		//for(i=0;str_arr[i] != 0; i++)
 		//	printf("%s\n",str_arr[i]);
 		//for(i=0;str_arr[i] != 0; i++)
@@ -130,7 +130,7 @@ int main(){
 		//	free(str_arr[i]);
 		printf("tab[1]:%s\n", str_arr[0]);
 		printf("tab[2]%s\n", str_arr[1]);
-		printf("tab[3]:%s\n", str_arr[2]);
+		// printf("tab[3]:%s\n", str_arr[2]);
 		//free(str_arr[i]);
 	//	free(str_arr);
 	}
