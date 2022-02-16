@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include "./ex00/ft.h"
 #include "./ex01/ft_boolean.h"
-// #include "./ex02/ft_abs.h"
-// #include "./ex03/ft_point.h"
+#include "./ex02/ft_abs.h"
+#include "./ex03/ft_point.h"
 // #include "./ex04/ft_strs_to_tab.c"
 // #include "./ex05/ft_show_tab.c"
 
@@ -19,12 +19,12 @@ t_bool	ft_is_even(int nbr)
 	return ((EVEN(nbr)) ? TRUE : FALSE);
 }
 
-// // ex03
-// void	set_point(t_point *point)
-// {
-// 	point->x = 42;
-// 	point->y = 24;
-// }
+// ex03
+void	set_point(t_point *point)
+{
+	point->x = 42;
+	point->y = 24;
+}
 
 // // ex04, ex05
 // #include "ft_stock_str.h"
@@ -39,22 +39,22 @@ int	main(int argc, char **argv)
 	else
 		ft_putstr(ODD_MSG);
 
-	// printf("--ex02--\n");
-	// // ex02
-	// long long int a = -42;
-	// long long int b = 24;
-	// printf("abs %lld : %lld\n", a, ABS(a));
-	// printf("abs %lld : %lld\n", b, ABS(b));
+	printf("--ex02--\n");
+	// ex02
+	long long int a = -42;
+	long long int b = 24;
+	printf("abs %lld : %lld\n", a, ABS(a));
+	printf("abs %lld : %lld\n", b, ABS(b));
 
 
-	// printf("--ex03--\n");
-	// // ex03
-	// t_point	point;
+	printf("--ex03--\n");
+	// ex03
+	t_point	point;
 
-	// set_point(&point);
-	// printf("%d, %d\n",point.x, point.y);
+	set_point(&point);
+	printf("%d, %d\n",point.x, point.y);
 
-	// printf("--ex04, ex05-- [you should put arguments when you run program]\n");
+	printf("--ex04, ex05-- [you should put arguments when you run program]\n");
 	// // ex04, ex05
 	// struct s_stock_str *stock_str;
 

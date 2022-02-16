@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:06:09 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/14 15:10:43 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/16 16:12:45 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned char	*sw;
 	unsigned char	cnt_temp;
 
-	sw = addr;
+	sw = (unsigned char *) addr;
 	cnt = 0;
 	cnt_temp = 16;
 	if (size != 0)

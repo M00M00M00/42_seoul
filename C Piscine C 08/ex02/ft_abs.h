@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 15:07:11 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 16:09:17 by mukim            ###   ########.fr       */
+/*   Created: 2022/02/16 15:34:50 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/16 15:37:16 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	len_src;
-
-	i = 0;
-	len_src = 0;
-	if (size < 1)
-		return (0);
-	while (src[i++] != '\0')
-		len_src++;
-	i = 0;
-	while (i + 1 < size && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (len_src);
-}
+#ifndef FT_ABS_H
+# define FT_ABS_H
+# define ABS(X) ((X < 0) ? -X : X)
+#endif
