@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:32:51 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/15 20:32:53 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:08:55 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 		*range = (void *) 0;
 		return (0);
 	}
-	arr = (int *) malloc(sizeof(int) * (max - min));
+	arr = malloc(sizeof(int) * (max - min));
 	if (arr == 0)
 		return (-1);
 	while (min < max)
@@ -34,3 +34,4 @@ int	ft_ultimate_range(int **range, int min, int max)
 	}
 	*range = arr;
 	return (cnt);
+}

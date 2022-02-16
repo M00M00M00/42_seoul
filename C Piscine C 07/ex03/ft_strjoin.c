@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:03 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/15 20:33:05 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:28:52 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	i = 0;
 	if (size == 0)
 	{
-		str = (char *) malloc(sizeof(char));
+		str = malloc(sizeof(char));
 		return (str);
 	}
-	str = (char *) malloc(sizeof(char) * find_total_size(size, strs, sep));
+	str = malloc(sizeof(char) * find_total_size(size, strs, sep));
 	str_temp = str;
 	while (i < size)
 	{

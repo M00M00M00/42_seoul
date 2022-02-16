@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:21 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/15 20:33:23 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:09:27 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*make_arr(long long nbr, char *base, int i, int j)
 	int			sw_minus;
 
 	sw_minus = 0;
-	arr1 = (char *) malloc(sizeof(char) * 100);
-	arr2 = (char *) malloc(sizeof(char) * 100);
+	arr1 = malloc(sizeof(char) * 100);
+	arr2 = malloc(sizeof(char) * 100);
 	len_base = find_len(base);
 	if (nbr < 0)
 	{
