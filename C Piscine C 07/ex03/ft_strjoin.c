@@ -21,7 +21,7 @@ int	find_total_size(int size, char **strs, char *sep)
 	i = 0;
 	j = 0;
 	cnt = 0;
-	while (sep[i++])
+	while (sep[j++])
 		cnt++;
 	cnt *= size - 1;
 	while (i < size)

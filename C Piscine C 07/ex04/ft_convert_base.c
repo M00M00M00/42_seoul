@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 int	ft_atoi_base(char *str, char *base);
 int	find_len(char *str);
 int	check_base(char *base);
