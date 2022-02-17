@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:41:55 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 17:35:48 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/18 00:39:06 by moo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_stock_str.h"
 
 char	*ft_strdup(char *src)
 {
@@ -43,13 +44,6 @@ int	ft_strlen(char *str)
 	}
 	return (cnt);
 }
-
-typedef struct s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}	t_stock_str;
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {

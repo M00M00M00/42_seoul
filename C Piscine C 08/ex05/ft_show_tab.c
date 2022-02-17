@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "ft_stock_str.h"
 
 int	ft_strlen1(char *str)
 {
