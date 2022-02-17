@@ -44,7 +44,6 @@ int	ft_strlen(char *str)
 	return (cnt);
 }
 
-
 typedef struct s_stock_str
 {
 	int		size;
@@ -52,14 +51,21 @@ typedef struct s_stock_str
 	char	*copy;
 }	t_stock_str;
 
-
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	t_stock_str	s_out;
+	t_stock_str	*s_out;
+	int			i;
 
-	s_out.size = ft_strlen(av[ac]);
-	s_out.str = av[ac];
-	s_out.copy = ft_strdup(av[ac]);
-
-	return (&s_out);
-};
+	i = 0;
+	s_out = malloc(sizeof(t_stock_str) * ac);
+	if (s_out == 0)
+		return (0);
+	while (i < ac)
+	{
+		s_out[i].size = ft_strlen(av[i]);
+		s_out[i].str = av[i];
+		s_out[i].copy = ft_strdup(av[i]);
+		i++;
+	}
+	return (s_out);
+}
