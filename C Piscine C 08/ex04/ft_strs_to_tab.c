@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:41:55 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/19 12:36:36 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:30:53 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	cp = malloc(sizeof(char) * i);
+	cp = malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (src[i])
 	{
@@ -51,6 +51,8 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int			i;
 
 	i = 0;
+	if (ac < 0)
+		return (0);
 	s_out = malloc(sizeof(t_stock_str) * (ac + 1));
 	if (s_out == 0)
 		return (0);

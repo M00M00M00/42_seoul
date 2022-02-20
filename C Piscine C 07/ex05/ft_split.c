@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:39 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 15:24:20 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:29:58 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ int	count_str(char *str, char *charset)
 {
 	int	cnt;
 
-	cnt = 1;
+	cnt = 0;
 	while (*str)
 	{
-		if (str[1] != '\0')
-			if (is_match(str, charset) && !is_match(str + 1, charset))
-				cnt++;
-		str++;
+		if (!(is_match(str, charset)))
+		{
+			cnt++;
+			while (!(is_match(str, charset)) && *str != '\0')
+				str++;
+		}
+		while (is_match(str, charset) && *str != '\0')
+			str++;
 	}
 	return (cnt);
 }
@@ -85,13 +89,14 @@ char	**ft_split(char *str, char *charset)
 
 	len_str = find_len1(str);
 	size_of_str = count_str(str, charset);
-	ans = malloc(sizeof(char *) * (size_of_str));
+	ans = malloc(sizeof(char *) * (size_of_str + 1));
 	i = 0;
 	while (i < size_of_str)
 	{
 		ans[i] = malloc(sizeof(char) * (len_str + 1));
 		i++;
 	}
+	ans[i] = 0;
 	allocate_each(ans, str, charset, size_of_str);
 	return (ans);
 }

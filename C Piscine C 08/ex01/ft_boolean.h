@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 11:34:30 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 15:34:14 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:30:26 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define EVEN(X) X % 2 == 0
 
-typedef enum _bool
+typedef enum e_bool
 {
 	FALSE = 0,
 	TRUE = 1

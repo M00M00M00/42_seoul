@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:29 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/15 20:33:31 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/20 13:55:06 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,15 @@ int	ft_atoi_base(char *str, char *base)
 	cnt_minus = 0;
 	cnt = 0;
 	len_base = find_len(base);
-	if (len_base > 1 && check_base(base))
+	while ((*str == '\t' || *str == '\n' || *str == '\v'
+			|| *str == '\f' || *str == '\r' || *str == ' '))
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		while ((*str == '\t' || *str == '\n' || *str == '\v'
-				|| *str == '\f' || *str == '\r' || *str == ' '))
-			str++;
-		while (*str == '-' || *str == '+')
-		{
-			if (*str++ == '-')
-				cnt_minus++;
-		}
-		if (cnt_minus % 2 == 1)
-			return (calculate1(str, base, len_base, 0) * -1);
-		return (calculate1(str, base, len_base, 0));
+		if (*str++ == '-')
+			cnt_minus++;
 	}
-	else
-		return (0);
+	if (cnt_minus % 2 == 1)
+		return (calculate1(str, base, len_base, 0) * -1);
+	return (calculate1(str, base, len_base, 0));
 }

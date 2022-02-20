@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:21 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 15:09:27 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/20 15:08:56 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,45 @@ int	check_base(char *base);
 
 char	*make_arr(long long nbr, char *base, int i, int j)
 {
-	long long	len_base;
-	char		*arr1;
-	char		*arr2;
-	int			sw_minus;
+	char	*arr_to;
+	int		arr_from[1000];
+	int		base_len;
 
-	sw_minus = 0;
-	arr1 = malloc(sizeof(char) * 100);
-	arr2 = malloc(sizeof(char) * 100);
-	len_base = find_len(base);
+	arr_to = malloc(sizeof(char) * 1000);
+	base_len = find_len(base);
 	if (nbr < 0)
 	{
 		nbr *= -1;
-		sw_minus = 1;
+		arr_to[j++] = '-';
 	}
 	while (nbr > 0)
 	{
-		arr1[i++] = nbr % len_base;
-		nbr /= len_base;
+		arr_from[i++] = nbr % base_len;
+		nbr /= base_len;
 	}
-	if (sw_minus)
-		arr2[j++] = '-';
 	while (--i >= 0)
-		arr2[j++] = base[(int) arr1[i]];
-	arr2[j] = '\0';
-	return (arr2);
+		arr_to[j++] = base[arr_from[i]];
+	arr_to[j] = '\0';
+	return (arr_to);
 }
 
 char	*ft_putnbr_base(long long nbr, char *base)
 {
-	int	len_base;
+	int		len_base;
+	char	*ans;
 
+	ans = malloc(sizeof(char) * 2);
+	if (!(ans))
+		return (0);
 	len_base = find_len(base);
-	if (len_base > 1 && check_base(base))
+	if (nbr == 0)
 	{
-		if (nbr == 0)
-			return (&base[0]);
-		return (make_arr(nbr, base, 0, 0));
+		ans[0] = base[0];
+		ans[1] = '\0';
+		return (ans);
 	}
-	return (0);
+	free(ans);
+	return (make_arr(nbr, base, 0, 0));
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)

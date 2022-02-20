@@ -1,7 +1,8 @@
-#include <map.h>
-#include <func.h>
+#include "map.h"
+#include "func.h"
 #include <stdlib.h>
 #include <unistd.h>
+
 char	*read_til(int fd, char sep, int i)
 {
 	char	*buff;
