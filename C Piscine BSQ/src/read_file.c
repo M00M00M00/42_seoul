@@ -1,8 +1,10 @@
 #include "../include/map.h"
 #include "../include/func.h"
+#include "../include/main.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <fcntl.h>
 
 char	*read_til(int fd, char sep, int i)
 {
@@ -32,7 +34,7 @@ char	*read_til(int fd, char sep, int i)
 	return (return_char);
 }
 
-void	set_map_params(t_map *map, char *first_line)
+int	set_map_params(t_map *map, char *first_line)
 {
 	char	*line_num;
 	int		i;
@@ -41,8 +43,8 @@ void	set_map_params(t_map *map, char *first_line)
 	i = 0;
 	line_len = ft_strlen(first_line);
 	line_num = malloc(sizeof(char) * (line_len - 2));
-	// if (!(line_num))
-	// 	return (0);
+	if (!(line_num))
+		return (0);
 	while (first_line[i + 3] != '\0')
 	{
 		line_num[i] = first_line[i];
@@ -55,26 +57,24 @@ void	set_map_params(t_map *map, char *first_line)
 	map->fill = first_line[i];
 	free(line_num);
 	printf("row_num : %d\n", map->row_num);
-	printf("empty : %s\n", &map->empty);
-	printf("obs : %s\n", &map->obs);
-	printf("fill : %s\n", &map->fill);
-	// return (1);
+	printf("empty : %c\n", map->empty);
+	printf("obs : %c\n", map->obs);
+	printf("fill : %c\n", map->fill);
+	return (1);
 }
 
-char	*read_file(int fd, t_map *map)
+char	*read_file(t_map *map)
 {
 	char	*str;
 	char	*first_line;
+	int		fd;
 
-	first_line = read_til(fd, '\n', 1);
-	printf("%s\n", first_line);
+	fd = open("grid1.txt", O_RDONLY);
 
-	// set_map_params(map, first_line);
-	// if (!(set_map_params(map, read_til(fd, '\n', 1))))
-	// 	return (0);
+	if (!(set_map_params(map, read_til(fd, '\n', 1))))
+		return (0);
 	
 	str = read_til(fd, '\0', 1);
-	printf("%s\n", str);
 	if (!(ft_strlen(str)))
 		return (0);
 	
