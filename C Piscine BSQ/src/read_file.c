@@ -56,27 +56,21 @@ int	set_map_params(t_map *map, char *first_line)
 	map->obs = first_line[i++];
 	map->fill = first_line[i];
 	free(line_num);
-	printf("row_num : %d\n", map->row_num);
-	printf("empty : %c\n", map->empty);
-	printf("obs : %c\n", map->obs);
-	printf("fill : %c\n", map->fill);
 	return (1);
 }
 
-char	*read_file(t_map *map)
+char	*read_file(t_map *map, char *filename)
 {
 	char	*str;
 	char	*first_line;
 	int		fd;
 
-	fd = open("grid1.txt", O_RDONLY);
-
+	fd = open(filename, O_RDONLY);
 	if (!(set_map_params(map, read_til(fd, '\n', 1))))
 		return (0);
-	
 	str = read_til(fd, '\0', 1);
+	close(fd);
 	if (!(ft_strlen(str)))
 		return (0);
-	
 	return (str);
 }
