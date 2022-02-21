@@ -127,6 +127,12 @@ int main(){
 			printf("%s\n",str_arr[i]);
 		for(i=0;str_arr[i] != 0; i++)
 			free(str_arr[i]);
-		free(str_arr);	
+		free(str_arr);
+		str_arr = ft_split("  gh  " ," ");
+		for(i=0;str_arr[i] != 0; i++)
+			printf("%s\n",str_arr[i]);
+		for(i=0;str_arr[i] != 0; i++)
+			free(str_arr[i]);
+		free(str_arr);		
 	}
 }

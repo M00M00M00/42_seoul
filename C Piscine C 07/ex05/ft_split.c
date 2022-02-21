@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:39 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/20 15:29:58 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:32:16 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	allocate_each(char **ans, char *str, char *charset, int size_of_str)
 
 	i = 0;
 	j = 0;
+	while (is_match(str, charset))
+		str++;
 	while (i < size_of_str)
 	{
 		j = 0;

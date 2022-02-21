@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:07:11 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/16 16:09:17 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/21 16:00:40 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 	i = 0;
 	len_src = 0;
-	if (size < 1)
-		return (0);
 	while (src[i++] != '\0')
 		len_src++;
 	i = 0;

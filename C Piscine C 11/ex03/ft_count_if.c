@@ -6,22 +6,24 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 18:56:57 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/19 19:00:04 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/21 14:09:53 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_count_if(char **tab, int length, int(*f)(char*))
 {
-	char	*s;
+	char	**s;
 	int		i;
+	int		cnt;
 
-	s = *tab;
+	s = tab;
 	i = 0;
-	while (s[i])
+	cnt = 0;
+	while (i < length)
 	{
 		if (f(s[i]) != 0)
-			cbt
+			cnt++;
 		i++;
 	}
-	return (0);
+	return (cnt);
 }

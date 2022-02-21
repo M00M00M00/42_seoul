@@ -6,14 +6,14 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 17:27:33 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/19 18:51:42 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/21 13:53:16 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_foreach(int *tab, int length, void(*f)(int))
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < length)
 	{
