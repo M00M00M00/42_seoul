@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 11:23:09 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/19 16:55:27 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/22 17:11:33 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@ void	print_content(char *file_name)
 {
 	char	buff[1024];
 	int		fd;
-	size_t	read_size;
 	
 	fd = open(file_name, O_RDONLY);
-	read_size = read(fd, buff, 1024);
-	while (read_size > 0)
+	while (read(fd, buff, 1) > 0)
 	{
-		write(1, buff, 1024);
-		read_size = read(fd, buff, 1024);
+		write(1, buff, 1);
 	}
+	close(fd);
 }
 
 int	main(int argc, char **argv)

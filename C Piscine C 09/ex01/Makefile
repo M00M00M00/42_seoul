@@ -6,26 +6,31 @@
 #    By: mukim <mukim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/19 10:54:19 by mukim             #+#    #+#              #
-#    Updated: 2022/02/19 10:54:20 by mukim            ###   ########.fr        #
+#    Updated: 2022/02/22 13:55:59 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-TARGET = libft.a
+NAME = libft.a
 SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
 OBJS = $(SRCS:.c=.o)
 
-all :		$(TARGET)
+.c.o :
+			$(CC) $(CFLAGS) -c -I./includes $< -o $(<:.c=.o)
+			 
+all :		$(NAME)
 
-$(TARGET):	$(OBJS)
-			ar rc $(TARGET) $(OBJS)
+$(NAME):	$(OBJS)
+			ar rc $(NAME) $(OBJS)
 
 clean :
 			$(RM) $(OBJS)
 
 fclean :	clean
-			$(RM) $(TARGET)
+			$(RM) $(NAME)
 
 re :		fclean	all
+
+.PHONY : all clean fclean re

@@ -6,26 +6,31 @@
 #    By: mukim <mukim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/19 10:54:19 by mukim             #+#    #+#              #
-#    Updated: 2022/02/19 15:25:09 by mukim            ###   ########.fr        #
+#    Updated: 2022/02/22 17:14:45 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-TARGET = ft_display_file
-SRCS = main.c
+NAME = ft_display_file
+SRCS = ./main.c
 OBJS = $(SRCS:.c=.o)
 
-all :		$(TARGET)
+.c.o :
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			 
+all :		$(NAME)
 
-$(TARGET):	$(OBJS)
-			$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean :
 			$(RM) $(OBJS)
 
 fclean :	clean
-			$(RM) $(TARGET)
+			$(RM) $(NAME)
 
 re :		fclean	all
+
+.PHONY : all clean fclean re
