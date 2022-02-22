@@ -6,12 +6,11 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 10:54:26 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/20 20:25:18 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/22 12:38:16 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
 int	is_match(char *str, char *charset)
 {
 	int	i;
@@ -65,6 +64,8 @@ void	allocate_each(char **ans, char *str, char *charset, int size_of_str)
 
 	i = 0;
 	j = 0;
+	while (is_match(str, charset))
+		str++;
 	while (i < size_of_str)
 	{
 		j = 0;

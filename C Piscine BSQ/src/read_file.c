@@ -30,6 +30,7 @@ char	*read_til(int fd, char sep, int i)
 		ft_strncat(return_char, buff, 1);
 		free(temp);
 	}
+	free(buff);
 	return_char[i] = '\0';
 	return (return_char);
 }
@@ -66,8 +67,10 @@ char	*read_file(t_map *map, char *filename)
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
-	if (!(set_map_params(map, read_til(fd, '\n', 1))))
+	first_line = read_til(fd, '\n', 1);
+	if (!(set_map_params(map, first_line)))
 		return (0);
+	free(first_line);
 	str = read_til(fd, '\0', 1);
 	close(fd);
 	if (!(ft_strlen(str)))

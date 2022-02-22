@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:04:54 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/22 00:58:24 by moo              ###   ########.fr       */
+/*   Updated: 2022/02/22 13:27:40 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,45 @@ int	**make_int_map(char **map, int row_num, int col_num, t_map params)
 	return (int_map);
 }
 
+void	bsq(char *str, t_map params)
+{
+	t_pos	best_pos;
+	char	**map;
+	int		**map_int;
+	int		i;
+
+	i = 0;
+	map = make_map(map, str, &params);
+	map_int = make_int_map(map, params.row_num, params.col_num, params);
+	best_pos = find_best_pos(map_int, params.row_num, params.col_num);
+	draw_ans(map, params, best_pos);
+	while (i < params.row_num + 1)
+	{
+		free(map[i]);
+		if (i != params.row_num)
+			free(map_int[i]);
+		i++;
+	}
+	free(str);
+	free(map);
+	free(map_int);
+}
+
 int	main(int ac, char **av)
 {
 	t_map	params;
-	t_pos	best_pos;
 	char	*str;
-	char	**map;
-	int		**map_int;
+	int		i;
 
-	if (ac == 2)
+	i = 1;
+	if (ac >= 2)
 	{
-		str = read_file(&params, av[1]);
-		map = make_map(map, str, &params);
-		map_int = make_int_map(map, params.row_num, params.col_num, params);
-		best_pos = find_best_pos(map_int, params.row_num, params.col_num);
-		draw_ans(map, params, best_pos);
+		while (i < ac)
+		{
+			str = read_file(&params, av[i]);
+			bsq(str, params);
+			i++;
+		}
 	}
 	return (0);
 }
