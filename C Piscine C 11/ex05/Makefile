@@ -6,26 +6,31 @@
 #    By: mukim <mukim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/19 10:54:19 by mukim             #+#    #+#              #
-#    Updated: 2022/02/21 13:44:09 by mukim            ###   ########.fr        #
+#    Updated: 2022/02/22 18:26:45 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-TARGET = do-op
-SRCS = $(wildcard ./*.c)
+NAME = do-op
+SRCS = ./ft_atoi.c ./ft_putnbr.c ./main.c ./operate.c
 OBJS = $(SRCS:.c=.o)
 
-all :		$(TARGET)
+.c.o :
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(TARGET):	$(OBJS)
-			$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+all :		$(NAME)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean :
 			$(RM) $(OBJS)
 
 fclean :	clean
-			$(RM) $(TARGET)
+			$(RM) $(NAME)
 
 re :		fclean	all
+
+.PHONY : all clean fclean re
