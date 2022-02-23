@@ -3,7 +3,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 #include <fcntl.h>
 
 int	check_firstline(char *str);

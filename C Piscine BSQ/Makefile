@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mukim <mukim@student.42.fr>                +#+  +:+       +#+         #
+#    By: moo <moo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/19 10:54:19 by mukim             #+#    #+#              #
-#    Updated: 2022/02/23 19:27:35 by mukim            ###   ########.fr        #
+#    Updated: 2022/02/23 23:31:06 by moo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS =  ./src/funcs/ft_atoi.c\
 		./src/funcs/ft_strncat.c\
 		./src/funcs/ft_strncpy.c\
 		./src/funcs/ft_strdup_til.c\
+		./src/funcs/ft_strdup.c\
 		./src/draw_ans.c\
 		./src/find_best_pos.c\
 		./src/main.c\

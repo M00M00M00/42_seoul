@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:04:54 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/23 20:02:13 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/24 00:30:23 by moo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "func.h"
 #include "main.h"
 #include <fcntl.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -68,7 +67,6 @@ void	bsq(char *str, t_map params)
 			free(map_int[i]);
 		i++;
 	}
-	free(str);
 	free(map);
 	free(map_int);
 }

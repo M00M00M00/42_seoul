@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strdup_til.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:32:31 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/23 13:47:56 by mukim            ###   ########.fr       */
+/*   Updated: 2022/02/24 00:06:38 by moo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_strdup_til(char *src, char sep)
 	char	*cp;
 
 	i = 0;
-	while (src[i] != sep || src[i] != '\0')
+	while (src[i] != sep && src[i] != '\0')
 		i++;
 	cp = malloc(sizeof(char) * i);
 	i = 0;
-	while (src[i] != sep || src[i] != '\0')
+	while (src[i] != sep && src[i] != '\0')
 	{
 		cp[i] = src[i];
 		i++;

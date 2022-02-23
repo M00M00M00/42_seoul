@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func.h                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 15:47:30 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/23 23:30:46 by moo              ###   ########.fr       */
+/*   Created: 2022/02/15 20:32:31 by mukim             #+#    #+#             */
+/*   Updated: 2022/02/24 00:07:59 by moo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNC_H
-# define FUNC_H
+#include <stdlib.h>
 
-int		ft_atoi(char *str);
-int		ft_strlen(char *str);
-char	*ft_strcat(char *dest, char *src);
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
-char	**ft_split(char *str, char *charset, int col_num, int row_num);
-char	*ft_strdup_til(char *src, char sep);
-char	*ft_strdup(char *src);
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*cp;
 
-#endif
+	i = 0;
+	while (src[i])
+		i++;
+	cp = malloc(sizeof(char) * i);
+	i = 0;
+	while (src[i])
+	{
+		cp[i] = src[i];
+		i++;
+	}
+	cp[i] = '\0';
+	return (cp);
+}

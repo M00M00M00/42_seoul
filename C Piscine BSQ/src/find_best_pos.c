@@ -1,7 +1,6 @@
 #include "map.h"
 #include "func.h"
 #include "main.h"
-#include <stdio.h>
 
 int	find_min(int a, int b, int c)
 {
