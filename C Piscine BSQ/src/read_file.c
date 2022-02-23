@@ -7,33 +7,27 @@
 
 int	check_firstline(char *str);
 
-char	*read_til(int fd, char sep, int i)
+char	*read_til(char *filename)
 {
 	char	*buff;
-	char	*temp;
-	char	*return_char;
+	int		fd;
+	int		i;
 
-	buff = malloc(sizeof(char));
-	if (!(buff))
-		return (0);
-	return_char = malloc(sizeof(char));
-	if (!(return_char))
-		return (0);
-	*return_char = '\0';
-	while (read(fd, buff, 1) > 0 && *buff != sep)
+	buff = malloc(sizeof(char) * 1024 * 1024 * 1024 + 1);
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 	{
-		temp = return_char;
-		return_char = malloc(sizeof(char) * (i++ + 1));
-		if (!(return_char))
-			return (0);
-		return_char[0] = '\0';
-		ft_strcat(return_char, temp);
-		ft_strncat(return_char, buff, 1);
-		free(temp);
+		free(buff);
+		return (0);
 	}
-	free(buff);
-	return_char[i] = 0;
-	return (return_char);
+	i = read(fd, buff, 1024 * 1024 * 1024);
+	if (fd == -1)
+	{
+		free(buff);
+		return (0);
+	}
+	buff[i] = 0;
+	return (buff);
 }
 
 int	set_map_params(t_map *map, char *first_line)
@@ -69,15 +63,22 @@ char	*read_file(t_map *map, char *filename)
 {
 	char	*str;
 	char	*first_line;
-	int		fd;
+	int		i;
 
-	fd = open(filename, O_RDONLY);
-	first_line = read_til(fd, '\n', 1);
+	i = 0;
+	str = read_til(filename);
+	first_line = ft_strdup_til(str, '\n');
 	if (!(set_map_params(map, first_line)))
 		return (0);
+	while (str[i] != 0)
+		i++;
+	if (str[i - 1] != '\n')
+		ft_strncat(str, "\n", 1);
+	while (*str != '\n' && *str != 0)
+		str++;
+	if (*str == '\n')
+		str++;
 	free(first_line);
-	str = read_til(fd, '\0', 1);
-	close(fd);
 	if (!(ft_strlen(str)))
 		return (0);
 	return (str);
