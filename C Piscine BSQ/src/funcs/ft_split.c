@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moo <moo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:33:39 by mukim             #+#    #+#             */
-/*   Updated: 2022/02/22 00:56:18 by moo              ###   ########.fr       */
+/*   Updated: 2022/02/23 13:01:55 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../include/map.h"
+#include "map.h"
 
 int	is_match(char *str, char *charset)
 {

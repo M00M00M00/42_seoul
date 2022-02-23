@@ -6,24 +6,24 @@
 #    By: mukim <mukim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/19 10:54:19 by mukim             #+#    #+#              #
-#    Updated: 2022/02/22 21:16:56 by mukim            ###   ########.fr        #
+#    Updated: 2022/02/23 11:15:42 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-NAME = libft.a
-SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+NAME = cat
+SRCS = ./main.c ./ft_puterror.c ./ft_putstr.c
 OBJS = $(SRCS:.c=.o)
 
 .c.o :
-			$(CC) $(CFLAGS) -c -I./includes $< -o $(<:.c=.o)
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 			 
 all :		$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rc $(NAME) $(OBJS)
+			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean :
 			$(RM) $(OBJS)

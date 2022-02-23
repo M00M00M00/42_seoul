@@ -1,6 +1,6 @@
-#include "../include/map.h"
-#include "../include/func.h"
-#include "../include/main.h"
+#include "map.h"
+#include "func.h"
+#include "main.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
