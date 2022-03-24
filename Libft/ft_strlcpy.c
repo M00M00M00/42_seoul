@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 18:20:54 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 12:39:31 by mukim            ###   ########.fr       */
+/*   Created: 2022/03/24 12:50:03 by mukim             #+#    #+#             */
+/*   Updated: 2022/03/24 12:55:09 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 {
-	char	*d;
-	char	*s;
+	int		i;
+	size_t	len_src;
 
-	d = (char *) dst;
-	s = (char *) src;
-	if (d <= s)
+	i = 0;
+	len_src = 0;
+	while (src[i++] != '\0')
+		len_src++;
+	i = 0;
+	while (i + 1 < dstsize && src[i] != '\0')
 	{
-		while (len-- > 0)
-			*d++ = *s++;
+		dst[i] = src[i];
+		i++;
 	}
-	else
-	{
-		d += len;
-		s += len;
-		while (len-- > 0)
-			*d-- = *s--;
-	}
-	return (dst);
+	dst[i] = '\0';
+	return (len_src);
 }
