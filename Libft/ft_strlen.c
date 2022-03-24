@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 17:58:32 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/23 14:45:14 by mukim            ###   ########.fr       */
+/*   Created: 2022/03/23 15:11:00 by mukim             #+#    #+#             */
+/*   Updated: 2022/03/23 16:53:08 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+size_t	ft_strlen(const char *s)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	size_t	size;
+	int		idx;
+
+	size = 0;
+	idx = 0;
+	while (s[idx++])
+		size++;
+	return (size);
 }
