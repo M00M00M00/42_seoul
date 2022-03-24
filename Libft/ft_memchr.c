@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 16:24:03 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 16:26:55 by mukim            ###   ########.fr       */
+/*   Updated: 2022/03/24 23:20:01 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	i = 0;
 	n_s = (char *) s;
-	if (c == '\0')
+	if (!n_s)
+		return (0);
+	while (i < n)
 	{
-		while (*n_s && i++ < n)
-			n_s++;
-		if (i == n)
-			return (0);
-		return (n_s);
-	}
-	while (*n_s && i++ < n)
-	{
-		if (*n_s == (char) c)
-			return (n_s);
-		n_s++;
+		if (*(unsigned char *)(n_s + i) == (unsigned char) c)
+			return ((void *)(s + i));
+		i++;
 	}
 	return (0);
 }
