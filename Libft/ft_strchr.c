@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 15:11:00 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 15:20:23 by mukim            ###   ########.fr       */
+/*   Created: 2022/03/24 14:03:10 by mukim             #+#    #+#             */
+/*   Updated: 2022/03/24 16:07:50 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	size;
-	int		idx;
+	char	*n_s;
 
-	size = 0;
-	idx = 0;
-	while (s[idx++])
-		size++;
-	return (size);
+	n_s = (char *) s;
+	if (c == '\0')
+	{
+		while (*n_s)
+			n_s++;
+		return (n_s);
+	}
+	while (*n_s)
+	{
+		if (*n_s == (char) c)
+			return (n_s);
+		n_s++;
+	}
+	return (0);
 }

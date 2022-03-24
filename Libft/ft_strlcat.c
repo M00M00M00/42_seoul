@@ -6,9 +6,11 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:09:42 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 13:21:10 by mukim            ###   ########.fr       */
+/*   Updated: 2022/03/24 15:35:01 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	find_len(char *str)
 {
@@ -23,7 +25,7 @@ size_t	find_len(char *str)
 	return (i);
 }
 
-size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len_dst;
 	size_t	len_src;

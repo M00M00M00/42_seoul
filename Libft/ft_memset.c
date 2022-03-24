@@ -6,9 +6,11 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:18:04 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/23 16:54:29 by mukim            ###   ########.fr       */
+/*   Updated: 2022/03/24 15:20:10 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
