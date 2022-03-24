@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:17:10 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 17:10:17 by mukim            ###   ########.fr       */
+/*   Updated: 2022/03/25 00:20:43 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_split(char const *str, char c);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
