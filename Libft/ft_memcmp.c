@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 18:05:48 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 17:41:07 by mukim            ###   ########.fr       */
+/*   Created: 2022/03/24 16:29:14 by mukim             #+#    #+#             */
+/*   Updated: 2022/03/24 16:35:12 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*d;
-	char	*s;
+	unsigned char	*n_s1;
+	unsigned char	*n_s2;
+	size_t			i;
 
-	d = (char *) dst;
-	s = (char *) src;
-	if (!dst && !src)
+	n_s1 = (unsigned char *) s1;
+	n_s2 = (unsigned char *) s2;
+	i = 0;
+	while (i < n)
+	{
+		if (*n_s1 != *n_s2)
+			return (*n_s1 - *n_s2);
+		n_s1++;
+		n_s2++;
+		i++;
+	}
+	if (i == n)
 		return (0);
-	while (n-- > 0)
-		*d++ = *s++;
-	return (dst);
+	return (*n_s1 - *n_s2);
 }

@@ -6,7 +6,7 @@
 #    By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:04:34 by mukim             #+#    #+#              #
-#    Updated: 2022/03/24 15:49:01 by mukim            ###   ########.fr        #
+#    Updated: 2022/03/24 17:10:24 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,13 @@ FILES = ft_bzero \
 		ft_strncmp \
 		ft_strrchr \
 		ft_tolower \
-		ft_toupper
+		ft_toupper \
+		ft_memchr \
+		ft_memcmp \
+		ft_strnstr \
+		ft_atoi \
+		ft_calloc \
+		ft_strdup
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

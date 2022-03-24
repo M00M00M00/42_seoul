@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:55:06 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 15:18:52 by mukim            ###   ########.fr       */
+/*   Updated: 2022/03/24 17:25:16 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*dest;
+	unsigned char	*s1;
+	size_t			i;
 
-	dest = (char *) s;
-	while (n-- > 0)
-		*dest = 0;
+	i = 0;
+	s1 = (unsigned char *) s;
+	while (i++ < n)
+		*s1++ = 0;
 }
