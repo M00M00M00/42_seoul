@@ -6,7 +6,7 @@
 #    By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:04:34 by mukim             #+#    #+#              #
-#    Updated: 2022/03/25 00:20:58 by mukim            ###   ########.fr        #
+#    Updated: 2022/03/27 16:29:16 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,14 @@ FILES = ft_bzero \
 		ft_substr \
 		ft_strjoin \
 		ft_split \
-		ft_strtrim
+		ft_strtrim \
+		ft_itoa \
+		ft_strmapi \
+		ft_striteri \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
