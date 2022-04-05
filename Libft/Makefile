@@ -6,7 +6,7 @@
 #    By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:04:34 by mukim             #+#    #+#              #
-#    Updated: 2022/03/27 16:29:16 by mukim            ###   ########.fr        #
+#    Updated: 2022/04/04 17:56:13 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,10 +49,12 @@ FILES = ft_bzero \
 		ft_putendl_fd \
 		ft_putnbr_fd
 
+BONUS_FILES = ft_lstnew
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_FILES:.c=.o)
 
 .c.o :		$(SRCS)
 			$(CC) $(CFLAGS) -c -o $@ $<
@@ -60,7 +62,7 @@ OBJS = $(SRCS:.c=.o)
 all :		$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $@ $^
+			ar rcs $(NAME) $(OBJS)
 
 clean :
 			$(RM) $(OBJS)
@@ -70,4 +72,7 @@ fclean :	clean
 
 re :		fclean	all
 
-.PHONY : all clean fclean re
+bonus : 	$(OBJS) $(BONUS_OBJS)
+			ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY : all clean fclean re bonus

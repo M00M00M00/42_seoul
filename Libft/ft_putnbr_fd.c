@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:28:58 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/27 16:48:58 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/04 17:33:41 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ void	ft_putnbr_fd(int n, int fd)
 
 	l = n;
 	c = '0';
-	if (n == 0)
-	{
-		write(fd, "0", 1);
-		return ;
-	}
-	else if (n < 0)
+	if (n < 0)
 	{
 		write(fd, "-", 1);
 		l *= -1;
 	}
-	while (l > 0)
+	if (l >= 10)
 	{
 		ft_putnbr_fd(l / 10, fd);
 		c += l % 10;
-		write(1, &c, 1);
+		write(fd, &c, 1);
+	}
+	else
+	{
+		c += l % 10;
+		write(fd, &c, 1);
 	}
 }

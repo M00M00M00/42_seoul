@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:47:32 by mukim             #+#    #+#             */
-/*   Updated: 2022/04/04 17:54:12 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/04 18:01:19 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*ls;
-	void	*c;
 
-	c = (void *) malloc(sizeof(content));
-	if (!c)
+	ls = (t_list *) malloc(sizeof(*ls));
+	if (!ls)
 		return (0);
-	c = content;
-	ls -> content = c;
+	ls -> content = content;
 	ls -> next = 0;
 	return (ls);
 }
