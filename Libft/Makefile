@@ -6,13 +6,14 @@
 #    By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:04:34 by mukim             #+#    #+#              #
-#    Updated: 2022/04/04 17:56:13 by mukim            ###   ########.fr        #
+#    Updated: 2022/04/05 15:23:20 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
+AR = ar rcs
 NAME = libft.a
 FILES = ft_bzero \
 		ft_isalnum \
@@ -52,27 +53,27 @@ FILES = ft_bzero \
 BONUS_FILES = ft_lstnew
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILES)))
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_FILES:.c=.o)
+BONUS_OBJS = $(SRCS_B:.c=.o)
 
-.c.o :		$(SRCS)
+.c.o:		$(SRCS)
 			$(CC) $(CFLAGS) -c -o $@ $<
-			 
-all :		$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+			$(AR) $@ $^
 
-clean :
-			$(RM) $(OBJS)
+bonus:		$(BONUS_OBJS)
+			$(AR) $(NAME) $^
 
-fclean :	clean
+all: 		$(NAME)
+
+clean:
+			$(RM) $(OBJS) $(BONUS_OBJS)
+
+fclean: clean
 			$(RM) $(NAME)
 
-re :		fclean	all
+re: clean all
 
-bonus : 	$(OBJS) $(BONUS_OBJS)
-			ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-.PHONY : all clean fclean re bonus
+.PHONY: bonus all clean fclean re
