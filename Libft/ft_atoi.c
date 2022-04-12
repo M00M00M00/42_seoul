@@ -6,41 +6,34 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 16:40:11 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 17:43:40 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/12 17:32:41 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	calculate(long long arr[], long long n, long long cnt_minus)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
-	long long	ans;
-	long long	cnt;
+	int		sign;
+	int		cnt;
+	size_t	i;
 
+	sign = 1;
 	cnt = 0;
-	ans = 0;
-	while (cnt < n)
-		ans = 10 * ans + arr[cnt++];
-	if (cnt_minus % 2 == 1)
-		ans *= -1;
-	return (ans);
-}
-
-long long	ft_atoi(const char *str)
-{
-	long long	cnt_minus;
-	long long	arr[100];
-	long long	cnt;
-
-	cnt_minus = 0;
-	cnt = 0;
-	while ((*str == '\t' || *str == '\n' || *str == '\v'
-			|| *str == '\f' || *str == '\r' || *str == ' '))
-		str++;
-	if (*str == '-' || *str == '+')
+	i = 0;
+	while ((str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str++ == '-')
-			cnt_minus++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
-		arr[cnt++] = (long long) *str++ - 48;
-	return (calculate (arr, cnt, cnt_minus));
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		cnt = (cnt * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * cnt);
 }

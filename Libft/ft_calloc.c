@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:02:15 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 23:06:40 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/12 16:57:36 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	p = (void *) malloc(count * size);
 	if (!p)
 		return (0);
-	ft_bzero(p, count);
+	ft_memset(p, 0, (count * size));
 	return (p);
 }
