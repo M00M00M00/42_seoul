@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:29:59 by mukim             #+#    #+#             */
-/*   Updated: 2022/04/05 18:07:38 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/12 15:32:35 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (new == NULL)
+	t_list	*temp;
+
+	temp = *lst;
+	if (!lst || !new)
+	{
 		return ;
-	if (lst == NULL)
+	}
+	if (new && *lst == NULL)
 	{
 		*lst = new;
-		(*lst)->next = NULL;
+		return ;
 	}
-	while ((*lst)->next != NULL)
+	while ((*lst)->next)
 		*lst = (*lst)->next;
 	(*lst)->next = new;
-	(*lst)->next->next = NULL;
+	*lst = temp;
 }

@@ -6,7 +6,7 @@
 #    By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 15:04:34 by mukim             #+#    #+#              #
-#    Updated: 2022/04/05 18:49:11 by mukim            ###   ########.fr        #
+#    Updated: 2022/04/12 13:59:48 by mukim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ BONUS_FILES = ft_lstnew \
 			ft_lstadd_back \
 			ft_lstdelone \
 			ft_lstclear \
-			ft_lstiter
+			ft_lstiter \
+			ft_lstmap
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
