@@ -6,15 +6,35 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:10:18 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/25 00:17:20 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 16:21:27 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_str(char *str, char c)
+static char	*n_dup(char *s, size_t n)
 {
-	int	cnt;
+	size_t	i;
+	char	*ss;
+
+	i = 0;
+	if (n == 0)
+		return (0);
+	ss = malloc(sizeof(char) * (n + 1));
+	if (!ss)
+		return (0);
+	while (i < n)
+	{
+		ss[i] = s[i];
+		i++;
+	}
+	ss[i] = '\0';
+	return (ss);
+}
+
+static size_t	count_str(char *str, char c)
+{
+	size_t	cnt;
 
 	cnt = 0;
 	while (*str)
@@ -31,48 +51,45 @@ int	count_str(char *str, char c)
 	return (cnt);
 }
 
-void	allocate_each(char **ans, char *str, char c, int size_of_str)
+static char	**freeall(char **list)
 {
-	int	i;
-	int	j;
+	size_t	j;
 
-	i = 0;
 	j = 0;
-	while (*str == c)
-		str++;
-	while (i < size_of_str)
+	while (list[j])
 	{
-		j = 0;
-		while (*str != c && *str != '\0')
-		{
-			ans[i][j] = *str;
-			j++;
-			str++;
-		}
-		while (*str == c)
-			str++;
-		ans[i][j] = '\0';
-		i++;
+		free(list[j]);
+		j++;
 	}
+	free(list);
+	return (0);
 }
 
 char	**ft_split(char const *str, char c)
 {
-	char	**ans;
-	int		size_of_str;
-	int		i;
-	int		len_str;
+	char		**ans;
+	size_t		i;
+	size_t		idx;
+	size_t		temp;
 
-	len_str = ft_strlen(str);
-	size_of_str = count_str((char *) str, c);
-	ans = malloc(sizeof(char *) * (size_of_str + 1));
 	i = 0;
-	while (i < size_of_str)
+	idx = 0;
+	if (!str)
+		return (0);
+	ans = malloc(sizeof(char *) * (count_str((char *) str, c) + 1));
+	if (!ans)
+		return (0);
+	while (i < count_str((char *) str, c) && str[idx] != '\0')
 	{
-		ans[i] = malloc(sizeof(char) * (len_str + 1));
-		i++;
+		while (str[idx] == c)
+			idx++;
+		temp = idx;
+		while (str[idx] != c && str[idx] != '\0')
+			idx++;
+		ans[i] = n_dup((char *) &str[temp], idx - temp);
+		if (!ans[i++])
+			return (freeall(ans));
 	}
 	ans[i] = 0;
-	allocate_each(ans, (char *) str, c, size_of_str);
 	return (ans);
 }

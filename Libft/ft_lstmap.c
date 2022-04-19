@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 19:05:57 by mukim             #+#    #+#             */
-/*   Updated: 2022/04/12 16:31:06 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 16:26:46 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*node;
+	t_list	*temp_node;
 	t_list	*n_node;
+	t_list	*n_list;
 
-	if (!lst || !f || !del)
-		return (0);
-	node = ft_lstnew(f(lst->content));
-	if (!node)
-		return (0);
-	lst = lst->next;
-	while (lst)
+	temp_node = lst;
+	n_list = 0;
+	while (temp_node)
 	{
-		n_node = ft_lstnew(f(lst->content));
+		n_node = ft_lstnew(f(temp_node->content));
 		if (!n_node)
 		{
-			ft_lstclear(&node, del);
+			ft_lstclear(&n_list, del);
 			return (0);
 		}
-		ft_lstadd_back(&node, n_node);
-		lst = lst->next;
+		ft_lstadd_back(&n_list, n_node);
+		temp_node = temp_node->next;
 	}
 	n_node = 0;
-	return (node);
+	return (n_list);
 }
