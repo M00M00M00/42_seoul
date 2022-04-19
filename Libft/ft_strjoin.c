@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:51:50 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/24 23:56:20 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 14:51:26 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (0);
 	s = (char *) malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!s)
 		return (0);

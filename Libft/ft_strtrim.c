@@ -6,13 +6,13 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 00:20:10 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/25 01:07:35 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 14:52:50 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_in(char c, char const *set)
+static int	is_in(char c, char const *set)
 {
 	while (*set)
 	{
@@ -31,10 +31,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		idx;
 
 	front = 0;
+	if (!s1 || !set)
+		return (0);
 	back = ft_strlen(s1);
 	idx = 0;
-	if (!s1)
-		return (0);
 	while (s1[front] && is_in(s1[front], set))
 		front++;
 	while (back > front && is_in(s1[back - 1], set))

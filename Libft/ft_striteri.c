@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:14:35 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/27 16:18:42 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 14:55:39 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	unsigned int	len_s;
 	unsigned int	idx;
 
+	if (!s || !f)
+		return ;
 	len_s = ft_strlen(s);
 	idx = 0;
 	while (idx < len_s)

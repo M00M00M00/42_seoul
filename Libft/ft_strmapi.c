@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:03:52 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/27 16:13:31 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 14:53:43 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*ss;
 	unsigned int	idx;
 
+	if (!s || !f)
+		return (0);
 	len_s = ft_strlen(s);
 	idx = 0;
 	ss = (char *)malloc(sizeof(*s) * (len_s + 1));

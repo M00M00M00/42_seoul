@@ -6,13 +6,13 @@
 /*   By: mukim <mukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:33:39 by mukim             #+#    #+#             */
-/*   Updated: 2022/03/25 00:06:28 by mukim            ###   ########.fr       */
+/*   Updated: 2022/04/19 14:50:30 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	m_size(char const *s, unsigned int start, size_t len)
+static size_t	m_size(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -38,6 +38,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (0);
 	len = m_size(s, start, len);
 	s1 = (char *) malloc(sizeof(*s) * (len + 1));
 	if (!s1)
