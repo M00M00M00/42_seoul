@@ -24,13 +24,7 @@ cd libft-unit-test/
 sed -i "" 's/LIBFTDIR	=	..\/libft/LIBFTDIR	=	..\//' Makefile
 make f
 cd ..
-echo -e "\033[32;1m"libftTester"\033[m"
-read $a
-git clone https://github.com/Tripouille/libftTester.git
-cd libftTester/
-make a
-cd ..
-rm -rf Libftest/ libft-war-machine/ libft-unit-test/ libftTester/
+rm -rf Libftest/ libft-war-machine/ libft-unit-test/
 echo -e "\033[32;1m"make fclean"\033[m"
 read $a
 make
