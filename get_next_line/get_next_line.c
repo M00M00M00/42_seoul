@@ -6,7 +6,7 @@
 /*   By: mukim <mukim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:54:12 by mukim             #+#    #+#             */
-/*   Updated: 2022/05/10 17:21:25 by mukim            ###   ########.fr       */
+/*   Updated: 2022/06/22 16:43:13 by mukim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	to_next_line(char *buff, char **reminder, int ret, char **rtn)
 	{
 		if (*reminder)
 		{
-			temp = ft_substr(*reminder, first_idx + 1, ret - first_idx - 1);
+			temp = ft_substr(*reminder, first_idx + 1, (ret - first_idx - 1));
 			free(*reminder);
 			*reminder = temp;
 		}
